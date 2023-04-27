@@ -1,0 +1,150 @@
+@media screen and (max-width: 1850px) {
+    .afisha-section {
+        padding-left: 160px;
+        padding-right: 160px;
+    }
+}
+
+@media screen and (max-width: 1380px) {
+    .afisha-section {
+        padding-left: 80px;
+        padding-right: 80px;
+    }
+
+    .afisha-greeting__header {
+        font-size: 80px;
+    }
+}
+
+@media screen and (max-width: 1180px) {
+    .afisha-section {
+        padding-left: 40px;
+        padding-right: 40px;
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+
+    .afisha-greeting {
+        height: 400px;
+        background-position: center;
+        background-size: cover;
+    }
+
+    .main--afisha+.footer {
+        margin-top: 0 !important;
+    }
+
+    .afisha-news {
+        height: 280px;
+    }
+}
+
+@media screen and (max-width: 980px) {
+    .afisha-greeting__header {
+        font-size: 64px;
+    }
+
+    .afisha-card {
+        width: calc(50% - 5px);
+    }
+
+    .afisha-news {
+        height: 350px;
+    }
+}
+
+@media screen and (max-width: 760px) {
+    .afisha-section {
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .afisha-greeting {
+        height: 300px;
+
+    }
+
+    .afisha-greeting__header {
+        font-size: 54px;
+        -webkit-text-stroke: 1px #fff;
+    }
+
+    .afisha-card,
+    .afisha-news {
+        height: 300px;
+    }
+
+    .afisha-card__header,
+    .afisha-news__header {
+        font-size: 14px;
+    }
+
+    .afisha-news__content {
+        font-size: 12px;
+    }
+
+    .afisha-card__date,
+    .afisha-news__date {
+        margin-top: 10px;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .afisha-greeting__header {
+        font-size: 48px;
+    }
+
+    .afisha-card,
+    .afisha-news {
+        padding: 10px;
+    }
+
+    .afisha-news__tag,
+    .afisha-card__tag {
+        top: 10px;
+        left: 10px;
+    }
+}
+
+@media screen and (max-width: 590px) {
+
+    .afisha-card,
+    .afisha-news {
+        width: 100%;
+        height: 240px;
+    }
+
+    .afisha-greeting__header {
+        font-size: 36px;
+    }
+
+    .afisha-greeting {
+        height: 200px;
+    }
+}
+
+@media screen and (max-width: 440px) {
+    .afisha-greeting__header {
+        font-size: 28px;
+    }
+}
+
+@media screen and (max-width: 370px) {
+    .afisha-section {
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .afisha-greeting__header {
+        font-size: 24px;
+    }
+
+    .afisha-greeting {
+        height: 150px;
+
+    }
+}

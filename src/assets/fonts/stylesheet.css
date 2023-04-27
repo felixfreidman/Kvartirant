@@ -1,0 +1,26 @@
+@font-face {
+  font-family: "SB Sans Display";
+  src: url("SBSansDisplay-Light.tff");
+  src: local("SBSansDisplay-Light"), local("SBSansDisplay-Light"),
+    url("SBSansDisplay-Light.tff") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "SB Sans Display";
+  src: url("SBSansDisplay-Regular.ttf");
+  src: local("SBSansDisplay-Regular"), local("SBSansDisplay-Regular"),
+    url("SBSansDisplay-Regular.tff") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "SB Sans Display";
+  src: url("SBSansDisplay-SemiBold.ttf");
+  src: local("SBSansDisplay-SemiBold"), local("SBSansDisplay-SemiBold"),
+    url("SBSansDisplay-SemiBold.tff") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}

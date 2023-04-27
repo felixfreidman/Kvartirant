@@ -1,0 +1,175 @@
+.afisha-greeting {
+    position: relative;
+    width: 100%;
+    height: 640px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url(./assets/images/content/afishaWallpaper.jpg);
+    background-position: center;
+
+    &__header {
+        z-index: 2;
+        font-weight: 600;
+        font-size: 120px;
+        line-height: 146px;
+        -webkit-text-stroke: 3px white;
+        color: transparent;
+    }
+
+    &::after {
+        content: '';
+        z-index: 1;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba($color: $firm_blue, $alpha: 0.4);
+    }
+}
+
+.afisha-section {
+    z-index: 3;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 60px 260px 15px;
+}
+
+.afisha-card {
+    z-index: 2;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: flex-end;
+    width: calc(33.3% - 5px);
+    height: 350px;
+    padding: 20px;
+    margin-bottom: 8px;
+    background-image: url(./assets/images/content/afishaImg1.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    &::after {
+        content: '';
+        z-index: 1;
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: block;
+        width: 100%;
+        height: 100%;
+        background: rgba($color: $firm_blue, $alpha: 0.3);
+    }
+
+    &__tag {
+        z-index: 2;
+        position: absolute;
+        left: 20px;
+        top: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 5px 30px;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 20px;
+        color: #FFFFFF;
+        background: #E5332A;
+        border-radius: 63px;
+    }
+
+    &__header {
+        z-index: 2;
+        position: relative;
+        margin-bottom: 5px;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 130%;
+        color: #FFFFFF;
+    }
+
+    &__content {
+        z-index: 2;
+        position: relative;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 130%;
+        color: #FFFFFF;
+    }
+
+    &__date {
+        z-index: 2;
+        position: relative;
+        margin-top: 20px;
+        font-weight: 600;
+        font-size: 10px;
+        line-height: 24px;
+        color: #FFFFFF;
+    }
+}
+
+.afisha-news {
+    z-index: 2;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: flex-end;
+    width: calc(50% - 5px);
+    height: 250px;
+    padding: 20px;
+    margin-bottom: 8px;
+    background: $firm_white;
+    border: 1px solid $firm_blue;
+
+    &__tag {
+        z-index: 2;
+        position: absolute;
+        left: 20px;
+        top: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 5px 30px;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 20px;
+        color: #FFFFFF;
+        background: #E5332A;
+        border-radius: 63px;
+    }
+
+    &__header {
+        z-index: 2;
+        position: relative;
+        margin-bottom: 5px;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 130%;
+        color: $firm_blue;
+    }
+
+    &__content {
+        z-index: 2;
+        position: relative;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 130%;
+        color: $firm_blue;
+    }
+
+    &__date {
+        z-index: 2;
+        position: relative;
+        margin-top: 20px;
+        font-weight: 600;
+        font-size: 10px;
+        line-height: 24px;
+        color: $firm_blue;
+    }
+}
