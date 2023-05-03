@@ -1,6 +1,7 @@
 .main {
     width: 100vw;
     height: fit-content;
+    min-height: calc(100vh);
     background: linear-gradient(0deg,
             rgba($color: $light_black, $alpha: 0.7),
             rgba($color: $light_black, $alpha: 0.7)),
@@ -113,7 +114,7 @@
         }
 
         &:focus {
-            border: 2px solid #0B2447;
+            border: 2px solid $hover_yellow;
         }
 
         &:focus {
@@ -469,7 +470,7 @@
         }
 
         &:focus {
-            border: 2px solid #0B2447;
+            border: 2px solid $hover_yellow;
         }
 
         &:focus {
