@@ -76,14 +76,70 @@
 
         </div>
     </header>
-    <main class="main">
-        <form action="" class="sign-form">
-            <div class="sign-form__header">Зарегистрироваться</div>
-            <input type="text" class="sign-form__input" name="signinLogin" placeholder="Почта">
-            <input type="text" class="sign-form__input" name="signinPassword" placeholder="Пароль">
-            <a href="signin.html" class="caption">Уже есть аккаунт?</a>
-            <button type="submit" class="sign-form__button">Войти</button>
-        </form>
+    <main class="main-profile main-profile--settings">
+        <div class="container container--horizontal">
+            <div class="container container--vertical main-container">
+                <div class="section-header">Личный кабинет</div>
+                <div class="profile-navigation">
+                    <a href="./account-profile.html" target="_blank" class="profile-navigation__link">Мой профиль</a>
+                    <a href="./subscription-profile.html" target="_blank" class="profile-navigation__link">Моя
+                        подписка</a>
+                    <a href="./settings-profile.html" target="_blank" class="profile-navigation__link">Настройки</a>
+                </div>
+            </div>
+            <div class="container container--horizontal display-container">
+                <div class="container container--vertical">
+                    <div class="container-header">Мои данные</div>
+                    <div class="container container--vertical">
+                        <div class="container container--horizontal">
+                            <div class="container container--vertical">
+                                <div class="info-label">Имя</div>
+                                <div class="info-value"><span>
+                                        Иван
+                                    </span>
+                                    <img src="./assets/images/content/edit_icon.svg" alt="" class="change-icon"
+                                        id="changeName">
+                                </div>
+                            </div>
+                            <div class="container container--vertical">
+                                <div class="info-label">Фамилия</div>
+                                <div class="info-value">
+                                    <span>
+                                        Иванов
+                                    </span>
+                                    <img src="./assets/images/content/edit_icon.svg" alt="" class="change-icon"
+                                        id="changeSurname">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container container--horizontal">
+                            <div class="container container--vertical">
+                                <div class="info-label">Почта</div>
+                                <div class="info-value">
+                                    <span>
+                                        ivanovivan@email.com
+                                    </span>
+                                    <img src="./assets/images/content/edit_icon.svg" alt="" class="change-icon"
+                                        id="changeMail">
+                                </div>
+                            </div>
+                            <div class="container container--vertical">
+                                <div class="info-label">Пароль</div>
+                                <div class="info-value">
+                                    <span>
+                                        Ваш пароль
+                                    </span>
+                                    <img src="./assets/images/content/edit_icon.svg" alt="" class="change-icon"
+                                        id="changePassword">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="change-button">Сохранить изменения</div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
     </main>
     <script src="./assets/js/jquery.min.js"></script>
     <script src="./assets/js/plugins.min.js"></script>

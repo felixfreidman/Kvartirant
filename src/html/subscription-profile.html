@@ -76,14 +76,75 @@
 
         </div>
     </header>
-    <main class="main">
-        <form action="" class="sign-form">
-            <div class="sign-form__header">Зарегистрироваться</div>
-            <input type="text" class="sign-form__input" name="signinLogin" placeholder="Почта">
-            <input type="text" class="sign-form__input" name="signinPassword" placeholder="Пароль">
-            <a href="signin.html" class="caption">Уже есть аккаунт?</a>
-            <button type="submit" class="sign-form__button">Войти</button>
-        </form>
+    <main class="main-profile main-profile--subscriptions">
+        <div class="container container--horizontal">
+            <div class="container container--vertical main-container">
+                <div class="section-header">Личный кабинет</div>
+                <div class="profile-navigation">
+                    <a href="./account-profile.html" target="_blank" class="profile-navigation__link">Мой профиль</a>
+                    <a href="./subscription-profile.html" target="_blank" class="profile-navigation__link">Моя
+                        подписка</a>
+                    <a href="./settings-profile.html" target="_blank" class="profile-navigation__link">Настройки</a>
+                </div>
+            </div>
+            <div class="container container--horizontal display-container">
+                <div class="container container--vertical">
+                    <div class="container-header">Моя подписка</div>
+                    <div class="container container--horizontal">
+                        <div class="sub-card sub-card--active">
+                            <div class="sub-card__header">
+                                <img src="./assets/images/content/check_logo.svg" alt="" class="sub-card__logo">
+                                <span class="sub-card__header-content">Базовая</span>
+                            </div>
+                            <div class="sub-card__list">
+                                <div class="sub-card__list-item">
+                                    <div class="sub-card__bullet"></div>
+                                    <div class="sub-card__item-content">Объявления проверяются роботом</div>
+                                </div>
+                                <div class="sub-card__list-item">
+                                    <div class="sub-card__bullet"></div>
+                                    <div class="sub-card__item-content">Все актуальные объявления со всех доступных
+                                        источников
+                                    </div>
+                                </div>
+                                <div class="sub-card__list-item">
+                                    <div class="sub-card__bullet"></div>
+                                    <div class="sub-card__item-content">Объявления от всех пользователей площадок</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sub-card">
+                            <div class="sub-card__header">
+                                <img src="./assets/images/content/premium_logo.svg" alt="" class="sub-card__logo">
+                                <span class="sub-card__header-content">Базовая</span>
+                            </div>
+                            <div class="sub-card__list">
+                                <div class="sub-card__list-item">
+                                    <div class="sub-card__bullet"></div>
+                                    <div class="sub-card__item-content">Объявления проверяются человеком</div>
+                                </div>
+                                <div class="sub-card__list-item">
+                                    <div class="sub-card__bullet"></div>
+                                    <div class="sub-card__item-content">Все актуальные объявления со всех доступных
+                                        источников
+                                    </div>
+                                </div>
+                                <div class="sub-card__list-item">
+                                    <div class="sub-card__bullet"></div>
+                                    <div class="sub-card__item-content">Все объявления от собственников</div>
+                                </div>
+                                <div class="sub-card__list-item">
+                                    <div class="sub-card__bullet"></div>
+                                    <div class="sub-card__item-content">Персонализированный подход</div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
     </main>
     <script src="./assets/js/jquery.min.js"></script>
     <script src="./assets/js/plugins.min.js"></script>

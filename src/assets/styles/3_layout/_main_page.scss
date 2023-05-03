@@ -341,8 +341,12 @@
     align-items: start;
     padding: 40px 20px;
     background: #FFFFFF;
-    border: 3px solid #333F48;
+    border: 3px solid $default_blue;
     border-radius: 16px;
+
+    &--active {
+        border: 3px solid $hover_yellow;
+    }
 
     &__header {
         display: flex;
@@ -375,6 +379,10 @@
     &__bullet {
         width: 8px;
         height: 8px;
+        min-width: 8px;
+        min-height: 8px;
+        max-width: 8px;
+        max-height: 8px;
         margin-right: 16px;
         border-radius: 50%;
         background: $light_black;
