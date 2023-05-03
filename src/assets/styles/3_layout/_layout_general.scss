@@ -3,12 +3,10 @@
     .greeting-section,
     .why-section,
     .adt-section,
-    .subs-section {
-        padding-left: calc(calc(100% - 1120px) / 2);
-        padding-right: calc(calc(100% - 1120px) / 2);
-    }
-
-    .header {
+    .subs-section,
+    .form-section,
+    .header,
+    .footer {
         padding-left: calc(calc(100% - 1120px) / 2);
         padding-right: calc(calc(100% - 1120px) / 2);
     }

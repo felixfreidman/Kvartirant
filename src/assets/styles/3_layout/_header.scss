@@ -1,5 +1,5 @@
 .header {
-    z-index: 3;
+    z-index: 10;
     position: fixed;
     top: 0;
     left: 0;
@@ -27,6 +27,16 @@
     &-image {
         width: 45px;
         height: 45px;
+
+        rect {
+            transition: all 0.3s ease;
+        }
+
+        &:hover {
+            rect {
+                fill: $hover_yellow;
+            }
+        }
     }
 }
 
@@ -42,7 +52,7 @@
 
         &:hover {
             path {
-                fill: $default_blue;
+                fill: $hover_yellow;
             }
         }
     }
@@ -57,7 +67,7 @@
 
     &:hover {
         path {
-            fill: $default_blue;
+            fill: $hover_yellow;
         }
     }
 

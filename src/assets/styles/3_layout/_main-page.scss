@@ -4,7 +4,7 @@
     background: linear-gradient(0deg,
             rgba($color: $light_black, $alpha: 0.7),
             rgba($color: $light_black, $alpha: 0.7)),
-        url(./assets/images/content/mainBackground.png);
+        url(./assets/images/content/background1.jpg);
     background-attachment: fixed;
     background-size: cover;
     background-position: center;
@@ -133,11 +133,16 @@
         font-size: 16px;
         line-height: 20px;
         color: $white;
-        background: #19376D;
+        background: $default_blue;
         border-radius: 30px;
         border: none;
         outline: none;
         transition: all 0.3s ease;
+
+        &:hover {
+            cursor: pointer;
+            background: $hover_yellow;
+        }
     }
 }
 
@@ -241,6 +246,7 @@
             .pagination-container {
                 position: absolute;
                 left: 0;
+                z-index: 3;
                 bottom: 8px;
                 width: 100%;
                 display: flex;
@@ -378,5 +384,120 @@
         font-size: 20px;
         line-height: 25px;
         color: $light_black;
+    }
+}
+
+
+.form-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    padding: 80px 160px;
+}
+
+.form-container {
+    width: 100%;
+    padding: 20px 60px;
+    background: linear-gradient(0deg, rgba($color: $light_black, $alpha: 0.5), rgba($color: $light_black, $alpha: 0.5)),
+        url(./assets/images/content/background1.jpg);
+    background-position: 50% 50%;
+    background-size: 100%;
+    background-attachment: fixed;
+    border-radius: 16px;
+
+    .container--horizontal {
+        align-items: center;
+    }
+
+    &__header-container {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+    }
+
+    &__header {
+        margin-bottom: 12px;
+        font-weight: 600;
+        font-size: 56px;
+        line-height: 70px;
+        color: $white;
+    }
+
+    &__subheader {
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 30px;
+        color: $white;
+    }
+
+    &__form {
+        width: 264px;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+    }
+
+    &__label {
+        margin-bottom: 12px;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 20px;
+        color: $white;
+    }
+
+    &__input {
+        width: 100%;
+        padding: 13px 12px;
+        margin-bottom: 15px;
+        background: $white;
+        border: 2px solid $white;
+        border-radius: 37px;
+        outline: none;
+        transition: all 0.3s ease;
+
+        &::placeholder {
+            font-weight: 400;
+            font-size: 12px;
+            line-height: 15px;
+            color: #787B7C;
+        }
+
+        &:hover {
+            cursor: pointer;
+            color: $default_blue;
+        }
+
+        &:focus {
+            border: 2px solid #0B2447;
+        }
+
+        &:focus {
+            color: $default_blue;
+            font-size: 13px;
+        }
+    }
+
+    &__button {
+        width: 157px;
+        align-self: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 12px;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 20px;
+        color: $white;
+        background: $default_blue;
+        border-radius: 30px;
+        border: none;
+        outline: none;
+        transition: all 0.3s ease;
+
+        &:hover {
+            cursor: pointer;
+            background: $hover_yellow;
+        }
     }
 }
