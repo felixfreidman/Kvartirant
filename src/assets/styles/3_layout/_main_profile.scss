@@ -141,3 +141,15 @@
         background: $hover_yellow;
     }
 }
+
+.editInput {
+    width: 100%;
+    padding: 12px;
+    background: #FFFFFF;
+    border: 1px solid $light_black;
+    border-radius: 38px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    color: $default_blue;
+}
