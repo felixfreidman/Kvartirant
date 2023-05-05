@@ -20,60 +20,66 @@ if (pageLocation.includes('profile')) {
   });
 }
 
-$(function () {
-  $("#userBudget").slider({
-    range: "min",
-    min: 0,
-    max: 200000,
-    step: 1000,
-    value: 50000,
-    slide: function slide(event, ui) {
-      $("#userBudgetInput").val(ui.value);
-    }
-  });
-});
-var budgetInput = document.getElementById('userBudgetInput');
-budgetInput.addEventListener('input', function () {
-  var valueInput = budgetInput.value;
-  $("#userBudget").slider("value", valueInput);
-});
-var customSelect = document.getElementById('customSelect');
-var selectContainer = document.querySelector('.pref-slide__select-container');
-var selectOptions = selectContainer.querySelectorAll('.pref-slide__option');
-var savedString = customSelect.textContent;
-customSelect.addEventListener('click', function () {
-  setTimeout(function () {
-    selectContainer.classList.remove('js--hidden');
-  }, 100);
-});
-
-window.onclick = function (event) {
-  if (event.target != selectContainer && !event.target.classList.contains('pref-slide__option') && !event.target.classList.contains('pref-slide__select')) {
-    selectContainer.classList.add("js--hidden");
-  }
-};
-
-selectOptions.forEach(function (option, index) {
-  option.addEventListener('click', function () {
-    if (index != 0) {
-      selectOptions[0].classList.remove('pref-slide__option--active');
-      option.classList.toggle('pref-slide__option--active');
-      customSelect.textContent = customSelect.textContent.replace('Все районы', '');
-
-      if (customSelect.textContent == '') {
-        customSelect.textContent = "".concat(option.textContent.slice(0, 5));
-      } else {
-        customSelect.textContent = "".concat(customSelect.textContent, ", ").concat(option.textContent.slice(0, 5));
+if (document.getElementById('userBudgetInput')) {
+  $(function () {
+    $("#userBudget").slider({
+      range: "min",
+      min: 0,
+      max: 200000,
+      step: 1000,
+      value: 50000,
+      slide: function slide(event, ui) {
+        $("#userBudgetInput").val(ui.value);
       }
-    } else {
-      selectOptions.forEach(function (inner_option) {
-        inner_option.classList.remove('pref-slide__option--active');
-      });
-      option.classList.add('pref-slide__option--active');
-      customSelect.textContent = 'Все районы';
-    }
+    });
   });
-});
+  var budgetInput = document.getElementById('userBudgetInput');
+  budgetInput.addEventListener('input', function () {
+    var valueInput = budgetInput.value;
+    $("#userBudget").slider("value", valueInput);
+  });
+}
+
+if (document.getElementById('customSelect')) {
+  var customSelect = document.getElementById('customSelect');
+  var selectContainer = document.querySelector('.pref-slide__select-container');
+  var selectOptions = selectContainer.querySelectorAll('.pref-slide__option');
+  var savedString = customSelect.textContent;
+  customSelect.addEventListener('click', function () {
+    setTimeout(function () {
+      selectContainer.classList.remove('js--hidden');
+    }, 100);
+  });
+
+  window.onclick = function (event) {
+    if (event.target != selectContainer && !event.target.classList.contains('pref-slide__option') && !event.target.classList.contains('pref-slide__select')) {
+      selectContainer.classList.add("js--hidden");
+    }
+  };
+
+  selectOptions.forEach(function (option, index) {
+    option.addEventListener('click', function () {
+      if (index != 0) {
+        selectOptions[0].classList.remove('pref-slide__option--active');
+        option.classList.toggle('pref-slide__option--active');
+        customSelect.textContent = customSelect.textContent.replace('Все районы', '');
+
+        if (customSelect.textContent == '') {
+          customSelect.textContent = "".concat(option.textContent.slice(0, 5));
+        } else {
+          customSelect.textContent = "".concat(customSelect.textContent, ", ").concat(option.textContent.slice(0, 5));
+        }
+      } else {
+        selectOptions.forEach(function (inner_option) {
+          inner_option.classList.remove('pref-slide__option--active');
+        });
+        option.classList.add('pref-slide__option--active');
+        customSelect.textContent = 'Все районы';
+      }
+    });
+  });
+}
+
 var editIcons = document.querySelectorAll('.change-icon');
 editIcons.forEach(function (icon) {
   icon.addEventListener('click', function () {
@@ -138,3 +144,14 @@ sliderContainers.forEach(function (swiper, index) {
     }
   });
 });
+
+if (window.location.href.includes('prefs')) {
+  var allNextButtons = document.querySelectorAll('.pref-slide__button');
+  var allSlides = document.querySelectorAll('.pref-slide');
+  allNextButtons.forEach(function (button, index) {
+    button.addEventListener('click', function () {
+      allSlides[index].classList.add('js--hidden');
+      allSlides[index + 1].classList.remove('js--hidden');
+    });
+  });
+}

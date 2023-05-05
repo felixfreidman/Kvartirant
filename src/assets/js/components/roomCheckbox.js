@@ -1,3 +1,4 @@
+
 const roomChecks = document.querySelectorAll('.custom-checkbox');
 
 roomChecks.forEach(room => {
