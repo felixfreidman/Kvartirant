@@ -1,0 +1,209 @@
+.pref-slide {
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .container--horizontal {
+        align-items: center;
+        margin-bottom: 40px;
+        position: relative;
+    }
+
+    &__header {
+        font-weight: 600;
+        line-height: 35px;
+        text-align: center;
+        color: $white;
+
+        &--big {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        &--middle {
+            font-size: 28px;
+            margin-bottom: 40px;
+        }
+
+        &--small {
+            font-size: 24px;
+            margin-bottom: 40px;
+        }
+    }
+
+    &__button {
+        width: 157px;
+        align-self: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 12px;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 20px;
+        color: $white;
+        background: $default_blue;
+        border-radius: 30px;
+        border: none;
+        outline: none;
+        transition: all 0.3s ease;
+
+        &:hover {
+            cursor: pointer;
+            background: $hover_yellow;
+        }
+    }
+
+    &__checkbox {
+        width: 50px;
+        height: 50px;
+        min-width: 50px;
+        min-height: 50px;
+        max-width: 50px;
+        max-height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: $white;
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 30px;
+        color: $default_blue;
+        transition: all 0.3s ease;
+
+        &:hover {
+            cursor: pointer;
+            color: $white;
+            background-color: $hover_yellow;
+        }
+
+        &--active {
+            color: $white;
+            background-color: $default_blue;
+        }
+
+    }
+
+    &__input {
+        width: 200px;
+        padding: 12px 20px;
+        background: #FFFFFF;
+        border: 1px solid $light_black;
+        border-radius: 38px;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 20px;
+        color: $default_blue;
+        margin-right: 20px;
+        outline: none;
+    }
+
+    &__slider {
+        width: calc(100% - 200px);
+        height: 4px;
+        border: none !important;
+        border-radius: 8px;
+        background: $white;
+    }
+
+    .ui-slider-handle {
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        border: none;
+        outline: none;
+        background-color: $default_blue;
+        top: 0;
+        bottom: 0;
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+
+    .ui-state-hover {
+        cursor: grab;
+    }
+
+    .ui-state-active {
+        cursor: grabbing;
+    }
+
+    .ui-slider-range {
+        border: none !important;
+        background-color: $default_blue;
+        border-radius: 8px;
+    }
+
+    &__select {
+        width: 100%;
+        padding: 12px 20px;
+        background: $white;
+        border: 1px solid $light_black;
+        border-radius: 38px;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 20px;
+        color: $default_blue;
+        position: relative;
+        cursor: pointer;
+
+        &::after {
+            content: '';
+            position: absolute;
+            right: 18px;
+            top: 0;
+            bottom: 0;
+            margin-top: auto;
+            margin-bottom: auto;
+            width: 6px;
+            height: 6px;
+            border-bottom: 2px solid $default_blue;
+            border-right: 2px solid $default_blue;
+            transform: rotate(45deg);
+            transition: all 0.3s ease;
+        }
+
+        &:hover {
+            &::after {
+                transform: rotate(-135deg);
+                top: 3px;
+            }
+        }
+    }
+
+    &__select-container {
+        position: absolute;
+        top: 50px;
+        left: 0;
+        width: 100%;
+        background-color: $white;
+        padding: 12px;
+        border-radius: 16px;
+    }
+
+    &__option {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 20px;
+        margin-bottom: 8px;
+        color: $default_blue;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        &--active {
+            font-weight: 600;
+            color: $hover_yellow;
+        }
+
+        &:hover {
+            color: $hover_yellow;
+        }
+    }
+}
