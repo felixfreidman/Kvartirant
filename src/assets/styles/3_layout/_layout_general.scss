@@ -1,0 +1,18 @@
+@media screen and (min-width: 1441px) {
+
+    .greeting-section,
+    .why-section,
+    .adt-section,
+    .subs-section,
+    .form-section,
+    .header,
+    .footer,
+    .main-profile {
+        padding-left: calc(calc(100% - 1120px) / 2);
+        padding-right: calc(calc(100% - 1120px) / 2);
+    }
+
+    .form-small {
+        right: calc(calc(100% - 1120px) / 2);
+    }
+}

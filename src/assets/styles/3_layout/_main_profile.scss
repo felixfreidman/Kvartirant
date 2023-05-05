@@ -1,0 +1,155 @@
+.main-profile {
+    width: 100%;
+    padding: 141px 160px 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+
+    .section-header {
+        color: $light_black;
+        margin-bottom: 40px;
+    }
+
+    .main-container {
+        width: 100%;
+        max-width: 352px;
+        margin-right: 40px;
+    }
+
+    .display-container {
+        width: 100%;
+
+        .container {
+            width: 50%;
+
+            .container {
+                width: 100%;
+            }
+        }
+    }
+
+    &--subscriptions {
+        .display-container {
+            width: 100%;
+
+            .container {
+                width: 100%;
+            }
+        }
+    }
+
+    &--settings {
+        .display-container {
+            width: 100%;
+
+            .container {
+                width: 100%;
+            }
+
+            .change-icon {
+                transition: all 0.3s ease;
+            }
+
+            .info-value {
+                margin-right: 40px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                transition: all 0.3s ease;
+
+                &:hover {
+                    .change-icon {
+                        cursor: pointer;
+                        filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(10deg) brightness(78%) contrast(119%);
+                    }
+                }
+            }
+
+
+        }
+    }
+}
+
+.profile-navigation {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+
+    &__link {
+        margin-bottom: 20px;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 25px;
+        color: $default_blue;
+        transition: all 0.3s ease;
+
+        &:hover {
+            color: $hover_yellow;
+        }
+
+        &--active {
+            font-weight: 600;
+            font-size: 20px;
+            line-height: 25px;
+            color: $hover_yellow;
+        }
+    }
+}
+
+.container-header {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 30px;
+    color: $light_black;
+    margin-bottom: 40px;
+}
+
+.info-label {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    color: $light_black;
+    margin-bottom: 10px;
+}
+
+.info-value {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    color: $hover_yellow;
+    margin-bottom: 20px;
+}
+
+.change-button {
+    width: 265px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    color: $white;
+    background: $default_blue;
+    border-radius: 30px;
+    border: none;
+    outline: none;
+    transition: all 0.3s ease;
+
+    &:hover {
+        cursor: pointer;
+        background: $hover_yellow;
+    }
+}
+
+.editInput {
+    width: 100%;
+    padding: 12px;
+    background: #FFFFFF;
+    border: 1px solid $light_black;
+    border-radius: 38px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    color: $default_blue;
+}

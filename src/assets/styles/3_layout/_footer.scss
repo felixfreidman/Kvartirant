@@ -1,0 +1,21 @@
+.footer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-color: $white;
+    padding: 8px 160px;
+    box-shadow: 0px 2px 10px 2px #333F48;
+}
+
+.created {
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    color: $light_black;
+    transition: all 0.3s ease;
+
+    &:hover {
+        color: $violet;
+    }
+}
