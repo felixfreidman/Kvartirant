@@ -113,10 +113,10 @@ if (localStorage.getItem('logged')) {
   }
 }
 
-var roomChecks = document.querySelectorAll('.pref-slide__checkbox');
+var roomChecks = document.querySelectorAll('.custom-checkbox');
 roomChecks.forEach(function (room) {
   room.addEventListener('click', function () {
-    room.classList.toggle('pref-slide__checkbox--active');
+    room.classList.toggle('custom-checkbox--active');
   });
 }); // Swiper Section
 
