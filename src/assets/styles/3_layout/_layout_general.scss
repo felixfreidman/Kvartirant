@@ -1,3 +1,11 @@
+.footer-navigation {
+    display: none;
+}
+
+.opener {
+    display: none;
+}
+
 @media screen and (min-width: 1441px) {
 
     .greeting-section,
@@ -14,5 +22,74 @@
 
     .form-small {
         right: calc(calc(100% - 1120px) / 2);
+    }
+}
+
+
+@media screen and (max-width: 1340px) {
+
+    .greeting-section,
+    .why-section,
+    .adt-section,
+    .subs-section,
+    .form-section,
+    .header,
+    .footer,
+    .main-profile {
+        padding-left: 80px;
+        padding-right: 80px;
+    }
+
+    .form-small {
+        right: 80px;
+    }
+}
+
+@media screen and (max-width: 1170px) {
+
+    .greeting-section,
+    .why-section,
+    .adt-section,
+    .subs-section,
+    .form-section,
+    .header,
+    .footer,
+    .main-profile {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+
+    .form-small {
+        right: 40px;
+    }
+}
+
+@media screen and (max-width: 630px) {
+
+    .greeting-section,
+    .why-section,
+    .adt-section,
+    .subs-section,
+    .form-section,
+    .header,
+    .footer,
+    .main-profile {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+@media screen and (max-width: 420px) {
+
+    .greeting-section,
+    .why-section,
+    .adt-section,
+    .subs-section,
+    .form-section,
+    .header,
+    .footer,
+    .main-profile {
+        padding-left: 16px;
+        padding-right: 16px;
     }
 }
