@@ -119,6 +119,19 @@ if (localStorage.getItem('logged')) {
   }
 }
 
+if (document.getElementById('menuOpener')) {
+  var opener = document.getElementById('menuOpener');
+  opener.addEventListener('click', function () {
+    opener.classList.add('opener--active');
+  });
+
+  window.onclick = function (event) {
+    if (event.target != opener && !event.target.classList.contains('checkSpan')) {
+      opener.classList.remove("opener--active");
+    }
+  };
+}
+
 var roomChecks = document.querySelectorAll('.custom-checkbox');
 roomChecks.forEach(function (room) {
   room.addEventListener('click', function () {
