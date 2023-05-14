@@ -1,3 +1,13 @@
 node_modules
-wp
-wordpress
+wp/*
+
+pippo/*
+!wp/wp-content
+wp/wp-content/*
+!wp/wp-content/themes/
+wp/wp-content/themes/*
+!wp/wp-content/themes/kvartirant
+!wp/wp-content/plugins/
+wp/wp-content/plugins/*
+!wp/wp-content/plugins/advanced-custom-fields-pro
+!wp/wp-content/plugins/wp-recall

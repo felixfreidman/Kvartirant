@@ -4,6 +4,17 @@
     display: flex;
     flex-direction: column;
     align-items: start;
+    background: $white;
+    height: fit-content;
+    min-height: calc(100vh - 61px);
+
+    #menu-header {
+        display: none;
+    }
+
+    #rcl-office {
+        width: 100%;
+    }
 
     .section-header {
         color: $light_black;
@@ -18,9 +29,10 @@
 
     .display-container {
         width: 100%;
+        justify-content: space-between;
 
         .container {
-            width: 50%;
+            width: 48%;
 
             .container {
                 width: 100%;
@@ -66,6 +78,233 @@
             }
 
 
+        }
+    }
+
+    .webx-area-tabs {
+        width: 100%;
+    }
+
+    .rcl-field-title {
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 20px;
+        color: $dark_black;
+        margin-bottom: 10px;
+        display: block;
+    }
+
+    h3 {
+        display: none;
+    }
+
+    .rcl-table {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    #personal {
+        .rcl-table {
+            .rcl-table__row:nth-child(5) {
+                display: none;
+            }
+
+            .rcl-table__row:nth-child(6) {
+                display: none;
+            }
+
+            .rcl-table__row:nth-child(7) {
+                display: none;
+            }
+
+            .rcl-table__row:nth-child(8) {
+                display: none;
+            }
+
+            .rcl-table__row:nth-child(9) {
+                display: none;
+            }
+
+            .rcl-table__row:nth-child(10) {
+                display: none;
+            }
+        }
+    }
+
+    #prefs {
+        .rcl-table {
+            .rcl-table__row:nth-child(1) {
+                display: none;
+            }
+
+            .rcl-table__row:nth-child(2) {
+                display: none;
+            }
+
+            .rcl-table__row:nth-child(3) {
+                display: none;
+            }
+
+            .rcl-table__row:nth-child(4) {
+                display: none;
+            }
+
+            .rcl-table__row:nth-child(5) {
+                display: none;
+            }
+        }
+    }
+
+    .rcl-table__row {
+        width: calc(100%);
+    }
+
+    input {
+        width: 100%;
+        padding: 13px 12px;
+        margin-bottom: 20px;
+        background: $white;
+        border: 2px solid $default_blue;
+        border-radius: 37px;
+        outline: none;
+        transition: all 0.3s ease;
+
+        &::placeholder {
+            font-weight: 400;
+            font-size: 12px;
+            line-height: 15px;
+            color: #787B7C;
+        }
+
+        &:hover {
+            cursor: pointer;
+            color: $default_blue;
+        }
+
+        &:focus {
+            border: 2px solid $hover_yellow;
+        }
+
+        &:focus {
+            color: $default_blue;
+            font-size: 13px;
+        }
+    }
+
+    .required {
+        display: none;
+    }
+
+    .rcl-field-notice {
+        display: none !important;
+    }
+}
+
+#rcl-office {
+    #main-container {
+        .container--vertical {
+            .rcl-menu {
+                display: flex;
+                flex-direction: column;
+                align-items: start;
+            }
+
+            .rcl-tab-button {
+                .recall-button {
+                    margin-bottom: 20px !important;
+                    font-weight: 400 !important;
+                    font-size: 20px !important;
+                    line-height: 25px !important;
+                    color: $default_blue !important;
+                    transition: all 0.3s ease;
+                    background: none !important;
+                    display: block;
+
+                    &:hover {
+                        color: $hover_yellow !important;
+                    }
+
+
+                }
+
+                .active {
+                    font-weight: 600 !important;
+                    font-size: 20px !important;
+                    line-height: 25px !important;
+                    color: $hover_yellow !important;
+                }
+            }
+
+            a {
+                margin-bottom: 20px !important;
+                font-weight: 400 !important;
+                font-size: 20px !important;
+                line-height: 25px !important;
+                color: $default_blue !important;
+                transition: all 0.3s ease;
+                background: none !important;
+                display: block;
+
+                &:hover {
+                    color: $hover_yellow !important;
+                }
+            }
+        }
+    }
+
+    #display-container {
+        #personal {
+            .rcl-bttn {
+                margin-top: 10px;
+                width: 100%;
+                align-self: center;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 12px;
+                font-weight: 600;
+                font-size: 16px;
+                line-height: 20px;
+                color: $white;
+                background-color: $default_blue !important;
+                border-radius: 30px;
+                border: none;
+                outline: none;
+                transition: all 0.3s ease;
+
+                &:hover {
+                    cursor: pointer;
+                    background-color: $hover_yellow !important;
+                }
+            }
+        }
+
+        #prefs {
+            .rcl-bttn {
+                margin-top: 10px;
+                width: 100%;
+                align-self: center;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 12px;
+                font-weight: 600;
+                font-size: 16px;
+                line-height: 20px;
+                color: $white;
+                background-color: $default_blue !important;
+                border-radius: 30px;
+                border: none;
+                outline: none;
+                transition: all 0.3s ease;
+
+                &:hover {
+                    cursor: pointer;
+                    background-color: $hover_yellow !important;
+                }
+            }
         }
     }
 }
