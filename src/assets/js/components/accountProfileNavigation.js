@@ -1,7 +1,6 @@
 const pageLocation = window.location.href;
 
 if (pageLocation.includes('profile')) {
-    localStorage.setItem('logged', true);
     const allNavLinks = document.querySelectorAll('.profile-navigation__link');
     allNavLinks.forEach(link => {
         if (link.href.includes('account-profile')

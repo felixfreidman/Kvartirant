@@ -1,3 +1,10 @@
+.main-auth {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 61px);
+}
+
 .sign-form {
     position: absolute;
     top: 0;
@@ -5,7 +12,7 @@
     right: 0;
     bottom: 0;
     margin: auto;
-    width: 300px;
+    width: 350px;
     height: fit-content;
     display: flex;
     flex-direction: column;
@@ -22,7 +29,11 @@
         color: $light_black;
     }
 
-    &__input {
+    form {
+        width: 100%;
+    }
+
+    input {
         width: 100%;
         padding: 13px 12px;
         margin-bottom: 15px;
@@ -54,7 +65,11 @@
         }
     }
 
-    &__button {
+    .rcli {
+        display: none !important;
+    }
+
+    a {
         margin-top: 10px;
         width: 100%;
         align-self: center;
@@ -66,7 +81,7 @@
         font-size: 16px;
         line-height: 20px;
         color: $white;
-        background: $default_blue;
+        background-color: $default_blue !important;
         border-radius: 30px;
         border: none;
         outline: none;
@@ -74,8 +89,12 @@
 
         &:hover {
             cursor: pointer;
-            background: $hover_yellow;
+            background-color: $hover_yellow !important;
         }
+    }
+
+    .form_extend span {
+        display: none;
     }
 
     .caption {

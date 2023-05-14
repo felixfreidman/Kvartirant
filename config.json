@@ -58,7 +58,7 @@
     "open": true,
     "cors": true,
     "ui": false,
-    "host": "localhost",
+    "host": "localhost/kvartirant/wp/",
     "port": 3000
   }
 }
