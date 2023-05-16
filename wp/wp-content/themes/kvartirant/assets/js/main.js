@@ -1,11 +1,83 @@
 "use strict";
 
-var roomChecks = document.querySelectorAll('.custom-checkbox');
-roomChecks.forEach(function (room) {
-  room.addEventListener('click', function () {
-    room.classList.toggle('custom-checkbox--active');
+// const roomChecks = document.querySelectorAll('.custom-checkbox');
+var checkboxesRepair = document.querySelectorAll('.repairCheckbox');
+var resetRepair = document.querySelector('.resetCheckboxRepair');
+var checkboxesColiver = document.querySelectorAll('.coliverCheckbox');
+var resetColiver = document.querySelector('.resetCheckboxColiver');
+var checkboxesRoom = document.querySelectorAll('.roomCheckbox');
+var resetRoom = document.querySelector('.resetCheckboxRoom');
+checkboxesRepair.forEach(function (repair) {
+  repair.addEventListener('click', function () {
+    if (!repair.classList.contains('resetCheckboxRepair')) {
+      repair.classList.toggle('custom-checkbox--active');
+      setTimeout(resetCheckboxRepair, 100);
+    } else if (repair.classList.contains('resetCheckboxRepair')) {
+      checkboxesRepair.forEach(function (inner_checkbox) {
+        inner_checkbox.classList.remove('custom-checkbox--active');
+        resetRepair.classList.add('custom-checkbox--active');
+      });
+    }
   });
 });
+checkboxesColiver.forEach(function (coliver) {
+  coliver.addEventListener('click', function () {
+    if (!coliver.classList.contains('resetCheckboxColiver')) {
+      coliver.classList.toggle('custom-checkbox--active');
+      setTimeout(resetCheckboxColiver, 100);
+    } else if (coliver.classList.contains('resetCheckboxColiver')) {
+      checkboxesColiver.forEach(function (inner_checkbox) {
+        inner_checkbox.classList.remove('custom-checkbox--active');
+        resetColiver.classList.add('custom-checkbox--active');
+      });
+    }
+  });
+});
+checkboxesRoom.forEach(function (room) {
+  room.addEventListener('click', function () {
+    room.classList.toggle('custom-checkbox--active');
+    setTimeout(resetCheckboxRoom, 100);
+  });
+});
+function resetCheckboxRepair() {
+  var controlSum = 0;
+  checkboxesRepair.forEach(function (room) {
+    if (room.classList.contains('custom-checkbox--active')) {
+      controlSum++;
+    }
+    if (controlSum > 1) {
+      resetRepair.classList.remove('custom-checkbox--active');
+    }
+    if (controlSum == 0) {
+      resetRepair.classList.add('custom-checkbox--active');
+    }
+  });
+}
+function resetCheckboxColiver() {
+  var controlSum = 0;
+  checkboxesColiver.forEach(function (room) {
+    if (room.classList.contains('custom-checkbox--active')) {
+      controlSum++;
+    }
+    if (controlSum > 1) {
+      resetColiver.classList.remove('custom-checkbox--active');
+    }
+    if (controlSum == 0) {
+      resetColiver.classList.add('custom-checkbox--active');
+    }
+  });
+}
+function resetCheckboxRoom() {
+  var controlSum = 0;
+  checkboxesRoom.forEach(function (room) {
+    if (room.classList.contains('custom-checkbox--active')) {
+      controlSum++;
+    }
+  });
+  if (controlSum == 0) {
+    resetRoom.classList.add('custom-checkbox--active');
+  }
+}
 if (document.getElementById('customSelect')) {
   var customSelect = document.getElementById('customSelect');
   var selectContainer = document.querySelector('.pref-slide__select-container');
@@ -61,6 +133,99 @@ if (document.getElementById('userBudgetInput')) {
     $("#userBudget").slider("value", valueInput);
   });
 }
+var submitForm = document.querySelector('.submitForm');
+var roomsAmount = '';
+var budget = '';
+var areaSearch = '';
+var repairPrefs = '';
+var coliverPrefs = '';
+var prefsObject = {
+  roomsAmount: '',
+  budget: '',
+  areaSearch: '',
+  repairPrefs: '',
+  coliverPrefs: ''
+};
+submitForm.addEventListener('click', function () {
+  submitForm.classList.add('js--inactive');
+  getRoomsAmount();
+  getRepairPrefs();
+  getColiverPrefs();
+  budget = document.getElementById('userBudgetInput').value;
+  areaSearch = document.getElementById('customSelect').textContent;
+  var inputRooms = document.getElementById('roomsAmount');
+  var inputBudget = document.getElementById('budgetAmount');
+  var inputArea = document.getElementById('areaSearch');
+  var inputRepairs = document.getElementById('repairPrefs');
+  var inputColiver = document.getElementById('coliverPrefs');
+  inputRooms.value = roomsAmount;
+  inputBudget.value = budget;
+  inputArea.value = areaSearch;
+  inputRepairs.value = repairPrefs;
+  inputColiver.value = coliverPrefs;
+  document.getElementById('prefsForm').submit();
+});
+
+// $(function () {
+//     $("#prefsForm").on("submit", function (e) {
+//         e.preventDefault();
+
+//         $.ajax({
+//             type: "post",
+//             url: '<?php admin_url( 'admin- ajax.php' )?>',
+//             data: {
+//             action: "update_prefs",
+//             roomsAmount: prefsObject.roomsAmount,
+//             budget: prefsObject.budget,
+//             areaSearch: prefsObject.areaSearch,
+//             repairPrefs: prefsObject.repairPrefs,
+//             coliverPrefs: prefsObject.coliverPrefs,
+//         },
+//             success: function (response) {
+//                 console.log(response, 'response');
+//                 console.log('success', 'status');
+//             },
+//         });
+// });
+// });
+
+function getRoomsAmount() {
+  var roomsCheckboxes = document.querySelectorAll('.roomCheckbox');
+  roomsCheckboxes.forEach(function (box) {
+    if (box.classList.contains('custom-checkbox--active')) {
+      var value = box.textContent;
+      roomsAmount += value;
+      roomsAmount += ', ';
+    }
+  });
+  roomsAmount = roomsAmount.trim();
+  roomsAmount = roomsAmount.slice(0, roomsAmount.length - 1);
+}
+function getRepairPrefs() {
+  var repairsCheckboxes = document.querySelectorAll('.repairCheckbox');
+  repairsCheckboxes.forEach(function (box) {
+    if (box.classList.contains('custom-checkbox--active')) {
+      var value = box.getAttribute('data-value');
+      repairPrefs += value;
+      repairPrefs += ', ';
+    }
+  });
+  repairPrefs = repairPrefs.trim();
+  repairPrefs = repairPrefs.slice(0, repairPrefs.length - 1);
+}
+function getColiverPrefs() {
+  var coliverCheckboxes = document.querySelectorAll('.coliverCheckbox');
+  coliverCheckboxes.forEach(function (box) {
+    if (box.classList.contains('custom-checkbox--active')) {
+      var value = box.getAttribute('data-value');
+      coliverPrefs += value;
+      coliverPrefs += ', ';
+    }
+  });
+  coliverPrefs = coliverPrefs.trim();
+  coliverPrefs = coliverPrefs.slice(0, coliverPrefs.length - 1);
+}
+
 // Swiper Section
 
 var sliderContainers = document.querySelectorAll('.swiper-adt');
@@ -81,16 +246,16 @@ sliderContainers.forEach(function (swiper, index) {
     }
   });
 });
-if (window.location.href.includes('prefs')) {
-  var allNextButtons = document.querySelectorAll('.pref-slide__button');
-  var allSlides = document.querySelectorAll('.pref-slide');
-  allNextButtons.forEach(function (button, index) {
+var allNextButtons = document.querySelectorAll('.pref-slide__button');
+var allSlides = document.querySelectorAll('.pref-slide');
+allNextButtons.forEach(function (button, index) {
+  if (index !== 2) {
     button.addEventListener('click', function () {
       allSlides[index].classList.add('js--hidden');
       allSlides[index + 1].classList.remove('js--hidden');
     });
-  });
-}
+  }
+});
 function activateForms() {
   if (document.querySelector('.signin-form')) {
     var signinForm = document.querySelector('.signin-form');

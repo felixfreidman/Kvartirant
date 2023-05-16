@@ -30,6 +30,10 @@ body {
     display: none !important;
 }
 
+.js--inactive {
+    pointer-events: none;
+}
+
 /* width */
 ::-webkit-scrollbar {
     width: 5px;
