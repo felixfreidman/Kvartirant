@@ -130,9 +130,9 @@ function rcl_edit_profile() {
 
 	do_action( 'personal_options_update', $user_ID );
 
-	$redirect_url = rcl_get_tab_permalink( $user_ID, 'profile' ) . '&updated=true';
+	$redirect_url = rcl_get_tab_permalink( $user_ID, 'profile' );
 
-	wp_safe_redirect( $redirect_url );
+	wp_safe_redirect( 'http://localhost/kvartirant/wp/profile/' );
 
 	exit;
 }

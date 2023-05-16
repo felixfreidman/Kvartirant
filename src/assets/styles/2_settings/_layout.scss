@@ -1,0 +1,112 @@
+.ssi-backdrop {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba($color: $dark_black, $alpha: 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 4;
+}
+
+.ssi-modal {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+}
+
+.ssi-modalWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    background-color: $white;
+    padding: 20px;
+    border-radius: 16px;
+}
+
+.ssi-modalTitle {
+    margin-bottom: 20px;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 40px;
+    color: $light_black;
+}
+
+#rcl-preview {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    border: 5px solid $default_blue;
+
+    .jcrop-holder {
+        width: 100% !important;
+        height: 100% !important;
+        max-width: 100% !important;
+        max-height: 100% !important;
+        border-radius: 50%;
+
+        img {
+            max-width: 100% !important;
+            max-height: 100% !important;
+            width: 100% !important;
+            height: 100% !important;
+            border-radius: 50%;
+        }
+    }
+}
+
+.jcrop-tracker {
+    pointer-events: none;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    border-radius: 50%;
+}
+
+.ssi-buttons {
+    margin-top: 20px;
+
+    .ssi-rightButtons {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .ssi-modalBtn {
+        width: 140px;
+        align-self: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 12px;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 20px;
+        color: $white;
+        background: $default_blue;
+        border-radius: 30px;
+        border: none;
+        outline: none;
+        transition: all 0.3s ease;
+
+        &:hover.btn-success {
+            cursor: pointer;
+            background: $success;
+        }
+
+        &:hover.btn-cancel {
+            cursor: pointer;
+            background: $error;
+        }
+
+    }
+}
+
+#remember-form-rcl {
+    display: none;
+}
