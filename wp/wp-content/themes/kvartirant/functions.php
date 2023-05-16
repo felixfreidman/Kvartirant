@@ -114,64 +114,7 @@ add_action( 'wp_enqueue_scripts', 'kvartitant_scripts' );
 
 
 
-add_shortcode('rcl-form', 'my_rcl_form');
-function my_rcl_form(){
- 
-    $fields = array(
-        array(
-            'type' => 'text',
-            'slug' => 'kolichestvo_komnat_646110dc3ef18',
-            'title' => __('Текстовое поле'),
-            'placeholder' => __('Заполните это поле'),
-            'required' => 1,
-            'notice' => __('тут какое то примечание к полю')
-        ),
-        array(
-            'type' => 'select',
-            'slug' => 'field_two',
-            'title' => __('Выпадающий список'),
-            'values' => array(
-                __('один'),
-                __('два'),
-                __('три')
-            ),
-            'notice' => __('выберите одно из значений')
-        ),
-        array(
-            'type' => 'textarea',
-            'slug' => 'field_three',
-            'title' => __('Многострочное поле'),
-            'placeholder' => __('Напишите хоть что то...'),
-            'required' => 1,
-            'notice' => __('еще одно примечание к текстовому полю')
-        ),
-        array(
-            'type' => 'hidden',
-            'slug' => 'my_form_submit',
-            'value' => 1
-        )
-    );
- 
-    //первая форма
-    $form = rcl_get_form(array(
-        'onclick' => 'rcl_send_form_data("my_first_form_process", this);return false;',
-        'submit' => __('Передать'),
-        'fields' => $fields
-    ));
- 
-    return $form;
-}
-//обработчик первой формы
-rcl_ajax_action('my_first_form_process');
-function my_first_form_process(){
- 
-    rcl_verify_ajax_nonce();
- 
-    //тут обрабатываем данные с первой формы
-    //строим вторую форму и отправляем ее в диалоговом окне
- 
- 
-}
+
 
 
 add_action( 'show_user_profile', 'add_pref_fields' );
@@ -220,4 +163,88 @@ function add_pref_fields( $user )
 </table>
 <?php
 }
- 
+
+
+add_action( 'personal_options_update', 'save_prefs' );
+add_action( 'edit_user_profile_update', 'save_prefs' );
+
+function save_prefs( $user_id ) 
+{
+    update_user_meta( $user_id,'roomAmount_pref', sanitize_text_field( $_POST['roomAmount_pref'] ) );
+    update_user_meta( $user_id,'repair_pref', sanitize_text_field( $_POST['repair_pref'] ) );
+    update_user_meta( $user_id,'animals_pref', sanitize_text_field( $_POST['animals_pref'] ) );
+    update_user_meta( $user_id,'money_pref', sanitize_text_field( $_POST['money_pref'] ) );
+    update_user_meta( $user_id,'area_pref', sanitize_text_field( $_POST['area_pref'] ) );
+}
+
+
+
+    
+
+// add_action('wp_enqueue_scripts', 'ajax_form_scripts');
+// function ajax_form()
+// {
+//     $name = $_REQUEST['name'];
+//     $phone = $_REQUEST['phone'];
+//     $company = $_REQUEST['company'];
+//     $area = $_REQUEST['area'];
+//     $response = '';
+//     $thm = 'Заявка на демо-доступ';
+//     $thm = "=?utf-8?b?" . base64_encode($thm) . "?=";
+//     $msg = "Имя: " . $name . "<br />
+//     Телефон: " . $phone . "<br />
+//     Название компании: " . $company . "<br />
+//     Область деятельности: " . $area . "<br />";
+//     $mail_to = get_field("email_to", 'option');
+
+//     $headers = "Content-Type: text/html; charset=utf-8\n";
+//     $headers .= 'От: Кукушки.Посадка' . "\r\n";
+
+// // Отправляем почтовое сообщение
+
+//     if (mail($mail_to, $thm, $msg, $headers)) {
+//         $response = '<div class="applied-screen" id="appliedForm">
+// <div class="form-close" id="closeAppliedForm"><span class="cross-one"> </span><span class="cross-two"></span>
+// </div><img class="applied-icon"
+//     src="http://qq.bezrealtora.ru/wp-content/themes/qq/assets/images/content/main_applied.png"
+// alt="Form Applied">
+// <div class="applied-header">Заявка успешно отправлена!</div>
+// <div class="applied-subheader"> Мы свяжемся с вами в ближайшее время!
+//     По всем интересующим вопросам вы можете позвонить нам по телефону <a href="tel:+74951864203">+7 (495)
+//         186-42-03</a></div>
+// <div class="form-button form-button--form" id="closeAppliedFormButton">Вернуться на сайт</div>
+// </div>';
+//     } else {
+//         $response = 'Ошибка при отправке';
+//     }
+
+// // Сообщение о результате отправки почты
+
+//     if (defined('DOING_AJAX') && DOING_AJAX) {
+//         echo $response;
+//         wp_die();
+//     }
+// }
+
+// add_action('wp_ajax_nopriv_ajax_form', 'ajax_form');
+// add_action('wp_ajax_ajax_form', 'ajax_form');
+
+
+
+add_action('wp_ajax_nopriv_update_prefs', 'custom_update_form');
+add_action('wp_ajax_update_prefs', 'custom_update_form');
+
+function custom_update_form()
+{
+    $userID = get_current_user_id();
+    $roomsAmount = $_REQUEST['roomsAmount'];
+    $budget = $_REQUEST['budget'];
+    $areaSearch = $_REQUEST['areaSearch'];
+    $repairPrefs = $_REQUEST['repairPrefs'];
+    $coliverPrefs = $_REQUEST['coliverPrefs'];
+    update_user_meta( $user_id,'roomAmount_pref', sanitize_text_field( roomsAmount ) );
+    update_user_meta( $user_id,' money_pref', sanitize_text_field( $budget ) );
+    update_user_meta( $user_id,' area_pref', sanitize_text_field( $areaSearch) );
+    update_user_meta( $user_id,'repair_pref', sanitize_text_field( $repairPrefs ) );
+    update_user_meta( $user_id,'animals_pref', sanitize_text_field( $coliverPrefs ) );
+}
