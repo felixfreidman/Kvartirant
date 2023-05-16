@@ -249,6 +249,8 @@ class Rcl_Chat extends Rcl_Chat_Messages_Query {
 			}
 		}
 
+	
+
 		$message = array(
 			'chat_id'         => $chat_id,
 			'user_id'         => $user_id,

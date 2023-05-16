@@ -105,215 +105,14 @@
 ?>
 
 <?php
-/**
- * Functions and definitions
- *
- * @link https://developer.wordpress.org/themes/basics/theme-functions/
- *
- * @package WordPress
- * @subpackage Twenty_Twenty_One
- * @since Twenty Twenty-One 1.0
- */
 
-// This theme requires WordPress 5.3 or later.
-if ( version_compare( $GLOBALS['wp_version'], '5.3', '<' ) ) {
-	require get_template_directory() . '/inc/back-compat.php';
+
+function kvartitant_scripts() {
+	wp_enqueue_style( 'kvartirant-style', get_template_directory_uri() . '/style.min.css' );
 }
+add_action( 'wp_enqueue_scripts', 'kvartitant_scripts' );
 
 
-function twenty_twenty_one_scripts() {
-	// Note, the is_IE global variable is defined by WordPress and is used
-	// to detect if the current browser is internet explorer.
-	global $is_IE, $wp_scripts;
-	if ( $is_IE ) {
-		// If IE 11 or below, use a flattened stylesheet with static values replacing CSS Variables.
-		wp_enqueue_style( 'twenty-twenty-one-style', get_template_directory_uri() . '/assets/css/ie.css', array(), wp_get_theme()->get( 'Version' ) );
-	} else {
-		// If not IE, use the standard stylesheet.
-		wp_enqueue_style( 'twenty-twenty-one-style', get_template_directory_uri() . '/style.css', array(), wp_get_theme()->get( 'Version' ) );
-	}
-
-	// RTL styles.
-	wp_style_add_data( 'twenty-twenty-one-style', 'rtl', 'replace' );
-
-	// Print styles.
-	wp_enqueue_style( 'twenty-twenty-one-print-style', get_template_directory_uri() . '/assets/css/print.css', array(), wp_get_theme()->get( 'Version' ), 'print' );
-
-	// Threaded comment reply styles.
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
-	}
-
-	// Register the IE11 polyfill file.
-	wp_register_script(
-		'twenty-twenty-one-ie11-polyfills-asset',
-		get_template_directory_uri() . '/assets/js/polyfills.js',
-		array(),
-		wp_get_theme()->get( 'Version' ),
-		true
-	);
-
-	// Register the IE11 polyfill loader.
-	wp_register_script(
-		'twenty-twenty-one-ie11-polyfills',
-		null,
-		array(),
-		wp_get_theme()->get( 'Version' ),
-		true
-	);
-	wp_add_inline_script(
-		'twenty-twenty-one-ie11-polyfills',
-		wp_get_script_polyfill(
-			$wp_scripts,
-			array(
-				'Element.prototype.matches && Element.prototype.closest && window.NodeList && NodeList.prototype.forEach' => 'twenty-twenty-one-ie11-polyfills-asset',
-			)
-		)
-	);
-
-	// Main navigation scripts.
-	if ( has_nav_menu( 'primary' ) ) {
-		wp_enqueue_script(
-			'twenty-twenty-one-primary-navigation-script',
-			get_template_directory_uri() . '/assets/js/primary-navigation.js',
-			array( 'twenty-twenty-one-ie11-polyfills' ),
-			wp_get_theme()->get( 'Version' ),
-			true
-		);
-	}
-
-	// Responsive embeds script.
-	wp_enqueue_script(
-		'twenty-twenty-one-responsive-embeds-script',
-		get_template_directory_uri() . '/assets/js/responsive-embeds.js',
-		array( 'twenty-twenty-one-ie11-polyfills' ),
-		wp_get_theme()->get( 'Version' ),
-		true
-	);
-}
-add_action( 'wp_enqueue_scripts', 'twenty_twenty_one_scripts' );
-
-/**
- * Enqueue block editor script.
- *
- * @since Twenty Twenty-One 1.0
- *
- * @return void
- */
-function twentytwentyone_block_editor_script() {
-
-	wp_enqueue_script( 'twentytwentyone-editor', get_theme_file_uri( '/assets/js/editor.js' ), array( 'wp-blocks', 'wp-dom' ), wp_get_theme()->get( 'Version' ), true );
-}
-
-add_action( 'enqueue_block_editor_assets', 'twentytwentyone_block_editor_script' );
-
-/**
- * Fix skip link focus in IE11.
- *
- * This does not enqueue the script because it is tiny and because it is only for IE11,
- * thus it does not warrant having an entire dedicated blocking script being loaded.
- *
- * @since Twenty Twenty-One 1.0
- *
- * @link https://git.io/vWdr2
- */
-function twenty_twenty_one_skip_link_focus_fix() {
-
-	// If SCRIPT_DEBUG is defined and true, print the unminified file.
-	if ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) {
-		echo '<script>';
-		include get_template_directory() . '/assets/js/skip-link-focus-fix.js';
-		echo '</script>';
-	} else {
-		// The following is minified via `npx terser --compress --mangle -- assets/js/skip-link-focus-fix.js`.
-		?>
-<script>
-/(trident|msie)/i.test(navigator.userAgent) && document.getElementById && window.addEventListener && window
-    .addEventListener("hashchange", (function() {
-        var t, e = location.hash.substring(1);
-        /^[A-z0-9_-]+$/.test(e) && (t = document.getElementById(e)) && (/^(?:a|select|input|button|textarea)$/i
-            .test(t.tagName) || (t.tabIndex = -1), t.focus())
-    }), !1);
-</script>
-<?php
-	}
-}
-add_action( 'wp_print_footer_scripts', 'twenty_twenty_one_skip_link_focus_fix' );
-
-/**
- * Enqueue non-latin language styles.
- *
- * @since Twenty Twenty-One 1.0
- *
- * @return void
- */
-
-/**
- * Enqueue scripts for the customizer preview.
- *
- * @since Twenty Twenty-One 1.0
- *
- * @return void
- */
-function twentytwentyone_customize_preview_init() {
-	wp_enqueue_script(
-		'twentytwentyone-customize-helpers',
-		get_theme_file_uri( '/assets/js/customize-helpers.js' ),
-		array(),
-		wp_get_theme()->get( 'Version' ),
-		true
-	);
-
-	wp_enqueue_script(
-		'twentytwentyone-customize-preview',
-		get_theme_file_uri( '/assets/js/customize-preview.js' ),
-		array( 'customize-preview', 'customize-selective-refresh', 'jquery', 'twentytwentyone-customize-helpers' ),
-		wp_get_theme()->get( 'Version' ),
-		true
-	);
-}
-add_action( 'customize_preview_init', 'twentytwentyone_customize_preview_init' );
-
-/**
- * Enqueue scripts for the customizer.
- *
- * @since Twenty Twenty-One 1.0
- *
- * @return void
- */
-function twentytwentyone_customize_controls_enqueue_scripts() {
-
-	wp_enqueue_script(
-		'twentytwentyone-customize-helpers',
-		get_theme_file_uri( '/assets/js/customize-helpers.js' ),
-		array(),
-		wp_get_theme()->get( 'Version' ),
-		true
-	);
-}
-add_action( 'customize_controls_enqueue_scripts', 'twentytwentyone_customize_controls_enqueue_scripts' );
-
-/**
- * Calculate classes for the main <html> element.
- *
- * @since Twenty Twenty-One 1.0
- *
- * @return void
- */
-function twentytwentyone_the_html_classes() {
-	/**
-	 * Filters the classes for the main <html> element.
-	 *
-	 * @since Twenty Twenty-One 1.0
-	 *
-	 * @param string The list of classes. Default empty string.
-	 */
-	$classes = apply_filters( 'twentytwentyone_html_classes', '' );
-	if ( ! $classes ) {
-		return;
-	}
-	echo 'class="' . esc_attr( $classes ) . '"';
-}
 
 add_shortcode('rcl-form', 'my_rcl_form');
 function my_rcl_form(){
@@ -362,9 +161,6 @@ function my_rcl_form(){
  
     return $form;
 }
- 
- 
- 
 //обработчик первой формы
 rcl_ajax_action('my_first_form_process');
 function my_first_form_process(){
@@ -375,5 +171,53 @@ function my_first_form_process(){
     //строим вторую форму и отправляем ее в диалоговом окне
  
  
+}
+
+
+add_action( 'show_user_profile', 'add_pref_fields' );
+add_action( 'edit_user_profile', 'add_pref_fields' );
+
+function add_pref_fields( $user )
+{
+    ?>
+<h3>Дополнительные данные пользователя</h3>
+
+<table class="form-table">
+    <tr>
+        <th><label for="roomAmount_pref">Количество Комнат</label></th>
+        <td><input type="text" name="roomAmount_pref"
+                value="<?php echo esc_attr(get_the_author_meta( 'roomAmount_pref', $user->ID )); ?>"
+                class="regular-text" />
+        </td>
+    </tr>
+
+    <tr>
+        <th><label for="repair_pref">Ремонт</label></th>
+        <td><input type="text" name="repair_pref"
+                value="<?php echo esc_attr(get_the_author_meta( 'repair_pref', $user->ID )); ?>" class="regular-text" />
+        </td>
+    </tr>
+
+    <tr>
+        <th><label for="animals_pref">Животные</label></th>
+        <td><input type="text" name="animals_pref"
+                value="<?php echo esc_attr(get_the_author_meta( 'animals_pref', $user->ID )); ?>"
+                class="regular-text" />
+        </td>
+    </tr>
+    <tr>
+        <th><label for="money_pref">Бюджет</label></th>
+        <td><input type="text" name="money_pref"
+                value="<?php echo esc_attr(get_the_author_meta( 'money_pref', $user->ID )); ?>" class="regular-text" />
+        </td>
+    </tr>
+    <tr>
+        <th><label for="area_pref">Районы поиска</label></th>
+        <td><input type="text" name="area_pref"
+                value="<?php echo esc_attr(get_the_author_meta( 'area_pref', $user->ID )); ?>" class="regular-text" />
+        </td>
+    </tr>
+</table>
+<?php
 }
  

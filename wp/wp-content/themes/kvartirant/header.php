@@ -4,8 +4,13 @@
 <head>
     <meta charset="<?php bloginfo( 'charset' ); ?>" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title><?php echo get_bloginfo('name'); ?></title>
+    <title><?php echo get_the_title(); ?></title>
     <?php wp_head(); ?>
+    <style>
+    html {
+        margin-top: 0 !important;
+    }
+    </style>
 </head>
 
 <body>

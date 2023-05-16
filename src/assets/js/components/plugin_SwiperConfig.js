@@ -1,6 +1,5 @@
 // Swiper Section
 
-
 const sliderContainers = document.querySelectorAll('.swiper-adt');
 
 sliderContainers.forEach((swiper, index) => {

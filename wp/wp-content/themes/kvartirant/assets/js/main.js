@@ -1,64 +1,11 @@
 "use strict";
 
-var pageLocation = window.location.href;
-if (pageLocation.includes('profile')) {
-  var allNavLinks = document.querySelectorAll('.profile-navigation__link');
-  allNavLinks.forEach(function (link) {
-    if (link.href.includes('account-profile') && pageLocation.includes('account-profile')) {
-      link.classList.add('profile-navigation__link--active');
-    }
-    if (link.href.includes('subscription-profile') && pageLocation.includes('subscription-profile')) {
-      link.classList.add('profile-navigation__link--active');
-    }
-    if (link.href.includes('settings-profile') && pageLocation.includes('settings-profile')) {
-      link.classList.add('profile-navigation__link--active');
-    }
+var roomChecks = document.querySelectorAll('.custom-checkbox');
+roomChecks.forEach(function (room) {
+  room.addEventListener('click', function () {
+    room.classList.toggle('custom-checkbox--active');
   });
-}
-function activateForms() {
-  if (document.querySelector('.signin-form')) {
-    var signinForm = document.querySelector('.signin-form');
-    var signupForm = document.querySelector('.signup-form');
-    var captionIn = signinForm.querySelector('.caption');
-    var captionUp = signupForm.querySelector('.caption');
-    var formSignInReal = document.getElementById('signin-special');
-    var formSignUpReal = document.getElementById('signup-special');
-    captionIn.addEventListener('click', function () {
-      signinForm.classList.add('js--hidden');
-      signupForm.classList.remove('js--hidden');
-    });
-    captionUp.addEventListener('click', function () {
-      signinForm.classList.remove('js--hidden');
-      signupForm.classList.add('js--hidden');
-    });
-    formSignInReal.addEventListener('click', function () {
-      localStorage.setItem('logged', true);
-    });
-    formSignUpReal.addEventListener('click', function () {
-      localStorage.setItem('logged', true);
-    });
-  }
-}
-setTimeout(activateForms, 300);
-if (document.getElementById('userBudgetInput')) {
-  $(function () {
-    $("#userBudget").slider({
-      range: "min",
-      min: 0,
-      max: 200000,
-      step: 1000,
-      value: 50000,
-      slide: function slide(event, ui) {
-        $("#userBudgetInput").val(ui.value);
-      }
-    });
-  });
-  var budgetInput = document.getElementById('userBudgetInput');
-  budgetInput.addEventListener('input', function () {
-    var valueInput = budgetInput.value;
-    $("#userBudget").slider("value", valueInput);
-  });
-}
+});
 if (document.getElementById('customSelect')) {
   var customSelect = document.getElementById('customSelect');
   var selectContainer = document.querySelector('.pref-slide__select-container');
@@ -95,82 +42,25 @@ if (document.getElementById('customSelect')) {
     });
   });
 }
-var editIcons = document.querySelectorAll('.change-icon');
-editIcons.forEach(function (icon) {
-  icon.addEventListener('click', function () {
-    var ID = icon.id;
-    if (ID !== 'changePassword') {
-      var editValueContainer = document.querySelector(".".concat(ID));
-      var valueTextContainer = editValueContainer.querySelector('span');
-      var value = valueTextContainer.textContent.trim();
-      var editInput = document.createElement('input');
-      valueTextContainer.classList.add('js--hidden');
-      icon.classList.add('js--hidden');
-      editInput.value = value;
-      editInput.type = 'text';
-      editInput.classList.add('editInput');
-      editValueContainer.appendChild(editInput);
-    } else {
-      var _editValueContainer = document.querySelector(".".concat(ID));
-      var valueContainer = _editValueContainer.querySelector('.info-value');
-      var labelContainer = _editValueContainer.querySelector('.info-label');
-      var passwordContainer = _editValueContainer.querySelector('.info-password');
-      valueContainer.classList.add('js--hidden');
-      labelContainer.classList.add('js--hidden');
-      passwordContainer.classList.remove('js--hidden');
-    }
-  });
-});
-function activateLogout() {
-  if (document.getElementById('menu-header')) {
-    var menuHeaader = document.getElementById('menu-header');
-    var logoutLink = menuHeaader.querySelector('a');
-    var profileNavigation = document.getElementById('profileMenu');
-    var logoutLinkInNav = document.createElement('a');
-    logoutLinkInNav.href = logoutLink.href;
-    logoutLinkInNav.textContent = 'Выйти';
-    profileNavigation.append(logoutLinkInNav);
-    logoutLinkInNav.addEventListener('click', function () {
-      if (localStorage.getItem('logged')) {
-        localStorage.setItem('logged', false);
-        var _account = document.querySelector('.account');
-        _account.classList.remove('account--logged');
+if (document.getElementById('userBudgetInput')) {
+  $(function () {
+    $("#userBudget").slider({
+      range: "min",
+      min: 0,
+      max: 200000,
+      step: 1000,
+      value: 50000,
+      slide: function slide(event, ui) {
+        $("#userBudgetInput").val(ui.value);
       }
     });
-  }
-}
-setTimeout(activateLogout, 300);
-if (localStorage.getItem('logged')) {
-  console.log(localStorage.getItem('logged'));
-  if (localStorage.getItem('logged') == 'true') {
-    var _account2 = document.querySelector('.account');
-    _account2.classList.add('account--logged');
-  }
-}
-if (document.getElementById('menuOpener')) {
-  var opener = document.getElementById('menuOpener');
-  opener.addEventListener('click', function () {
-    opener.classList.add('opener--active');
   });
-  window.onclick = function (event) {
-    if (event.target != opener && !event.target.classList.contains('checkSpan')) {
-      opener.classList.remove("opener--active");
-    }
-  };
-}
-var account = document.querySelector('.account');
-if (pageLocation.includes('login')) {
-  if (localStorage.getItem('logged') == 'true') {
-    window.location.href = 'http://localhost/kvartirant/wp/profile/';
-  }
-}
-var roomChecks = document.querySelectorAll('.custom-checkbox');
-roomChecks.forEach(function (room) {
-  room.addEventListener('click', function () {
-    room.classList.toggle('custom-checkbox--active');
+  var budgetInput = document.getElementById('userBudgetInput');
+  budgetInput.addEventListener('input', function () {
+    var valueInput = budgetInput.value;
+    $("#userBudget").slider("value", valueInput);
   });
-});
-
+}
 // Swiper Section
 
 var sliderContainers = document.querySelectorAll('.swiper-adt');
@@ -201,3 +91,98 @@ if (window.location.href.includes('prefs')) {
     });
   });
 }
+function activateForms() {
+  if (document.querySelector('.signin-form')) {
+    var signinForm = document.querySelector('.signin-form');
+    var signupForm = document.querySelector('.signup-form');
+    var captionIn = signinForm.querySelector('.caption');
+    var captionUp = signupForm.querySelector('.caption');
+    var formSignInReal = document.getElementById('signin-special');
+    var formSignUpReal = document.getElementById('signup-special');
+    captionIn.addEventListener('click', function () {
+      signinForm.classList.add('js--hidden');
+      signupForm.classList.remove('js--hidden');
+    });
+    captionUp.addEventListener('click', function () {
+      signinForm.classList.remove('js--hidden');
+      signupForm.classList.add('js--hidden');
+    });
+    formSignInReal.addEventListener('click', function () {
+      localStorage.setItem('logged', true);
+    });
+    formSignUpReal.addEventListener('click', function () {
+      localStorage.setItem('logged', true);
+    });
+  }
+}
+setTimeout(activateForms, 300);
+var timers = document.querySelectorAll('.message-time');
+var formContainer = document.querySelectorAll('.chat-form');
+function modifyTime() {
+  timers.forEach(function (timer) {
+    var timerValue = timer.textContent;
+    timerValue = timerValue.slice(11, 17);
+    timer.textContent = timerValue;
+  });
+}
+modifyTime();
+function activateLogout() {
+  if (document.getElementById('menu-header')) {
+    var menuHeaader = document.getElementById('menu-header');
+    var logoutLink = menuHeaader.querySelector('a');
+    var logoutLinkInNav = document.getElementById('logoutLink');
+    logoutLinkInNav.href = logoutLink.href;
+    logoutLinkInNav.addEventListener('click', function () {
+      if (localStorage.getItem('logged')) {
+        localStorage.setItem('logged', false);
+        var account = document.querySelector('.account');
+        account.classList.remove('account--logged');
+      }
+    });
+  }
+}
+setTimeout(activateLogout, 300);
+if (localStorage.getItem('logged')) {
+  if (localStorage.getItem('logged') == 'true') {
+    var account = document.querySelector('.account');
+    account.classList.add('account--logged');
+  }
+}
+if (document.getElementById('menuOpener')) {
+  var opener = document.getElementById('menuOpener');
+  opener.addEventListener('click', function () {
+    opener.classList.add('opener--active');
+  });
+  window.onclick = function (event) {
+    if (event.target != opener && !event.target.classList.contains('checkSpan')) {
+      opener.classList.remove("opener--active");
+    }
+  };
+}
+var pageLocation = window.location.href;
+var props = ['Ваш профиль', 'Ваши сообщения'];
+if (pageLocation.includes('profile') || pageLocation.includes('subscription')) {
+  var allNavLinks = document.querySelectorAll('.profile-navigation__link');
+  var sectionHeader = document.getElementById('ProfileHeader');
+  var avatarFrame = document.querySelector('.lk-sidebar');
+  allNavLinks.forEach(function (link, index) {
+    if (index !== 4) {
+      if (link.href.includes('tab=chat') && pageLocation.includes('tab=chat')) {
+        link.classList.add('profile-navigation__link--active');
+        sectionHeader.textContent = props[1];
+        avatarFrame.classList.add('js--hidden');
+      } else if (link.href.includes('user') && pageLocation.includes('user') && !pageLocation.includes('chat')) {
+        link.classList.add('profile-navigation__link--active');
+        sectionHeader.textContent = props[0];
+      } else if (link.href.includes('subscription') && pageLocation.includes('subscription')) {
+        link.classList.add('profile-navigation__link--active');
+      }
+    }
+  });
+}
+// const account = document.querySelector('.account');
+// if (pageLocation.includes('login')) {
+//     if (localStorage.getItem('logged') == 'true') {
+//         window.location.href = 'http://localhost/kvartirant/wp/profile/?user';
+//     }
+// }

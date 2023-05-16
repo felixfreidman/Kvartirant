@@ -165,7 +165,7 @@ class Rcl_Uploader {
 
 		$json = json_encode( $this );
 
-		$content = '<input id="rcl-uploader-input-' . esc_attr( $this->uploader_id ) . '" class="uploader-input" '
+		$content = '<div class="uploader" onclick='.'"document.getElementById('.'`rcl-uploader-input-rcl_avatar`'.').click()"'.'></div><input id="rcl-uploader-input-' . esc_attr( $this->uploader_id ) . '" class="uploader-input" '
 		           . 'data-uploader_id="' . esc_attr( $this->uploader_id ) . '" name="' . ( $this->multiple ? esc_attr( $this->input_name ) . '[]' : esc_attr( $this->input_name ) ) . '" '
 		           . 'type="file" accept="' . esc_attr( implode( ', ', $this->accept ) ) . '" ' . ( $this->multiple ? 'multiple' : '' ) . '>'
 		           . '<script>rcl_init_uploader(' . $json . ', "' . esc_js( md5( $json . rcl_get_option( 'security-key' ) ) ) . '");</script>';
