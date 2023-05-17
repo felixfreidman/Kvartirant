@@ -5,6 +5,13 @@
     min-height: calc(100vh - 61px);
 }
 
+.rcl-loginform {
+    position: relative;
+    z-index: 3;
+    width: 100vw;
+    height: calc(100vh - 61px);
+}
+
 .sign-form {
     position: absolute;
     top: 0;

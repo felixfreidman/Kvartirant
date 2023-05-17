@@ -79,47 +79,49 @@ function resetCheckboxRoom() {
 }
 if (window.location.href.includes('prefs')) {
   setTimeout(function () {
-    var userRoom = document.querySelector('.userRoom');
-    checkboxesRoom.forEach(function (room) {
-      room.classList.remove('custom-checkbox--active');
-      if (userRoom.textContent.includes('1') && room.textContent.includes('1')) {
-        room.classList.add('custom-checkbox--active');
-      } else if (userRoom.textContent.includes('2') && room.textContent.includes('2')) {
-        room.classList.add('custom-checkbox--active');
-      } else if (userRoom.textContent.includes('3') && room.textContent.includes('3')) {
-        room.classList.add('custom-checkbox--active');
-      } else if (userRoom.textContent.includes('4+') && room.textContent.includes('4+')) {
-        room.classList.add('custom-checkbox--active');
-      } else if (userRoom.textContent.includes('4') && room.textContent.includes('4') && !userRoom.textContent.includes('+') && !room.textContent.includes('+')) {
-        room.classList.add('custom-checkbox--active');
-      }
-    });
-    var userRepair = document.querySelector('.userRepair');
-    checkboxesRepair.forEach(function (repair) {
-      repair.classList.remove('custom-checkbox--active');
-      if (userRepair.textContent.includes('бабушкин') && repair.textContent.includes('бабушкин')) {
-        repair.classList.add('custom-checkbox--active');
-      } else if (userRepair.textContent.includes('Косметический') && repair.textContent.includes('Косметический')) {
-        repair.classList.add('custom-checkbox--active');
-      } else if (userRepair.textContent.includes('Дизайнерский') && repair.textContent.includes('Дизайнерский')) {
-        repair.classList.add('custom-checkbox--active');
-      } else if (userRepair.textContent.includes('Не важно') && repair.textContent.includes('важно')) {
-        repair.classList.add('custom-checkbox--active');
-      }
-    });
-    var userColiver = document.querySelector('.userColiver');
-    checkboxesColiver.forEach(function (coliver) {
-      coliver.classList.remove('custom-checkbox--active');
-      if (userColiver.textContent.includes('Собака') && coliver.textContent.includes('Собака')) {
-        coliver.classList.add('custom-checkbox--active');
-      } else if (userColiver.textContent.includes('Кот') && coliver.textContent.includes('Кот')) {
-        coliver.classList.add('custom-checkbox--active');
-      } else if (userColiver.textContent.includes('Другие') && coliver.textContent.includes('Другие')) {
-        coliver.classList.add('custom-checkbox--active');
-      } else if (userColiver.textContent.includes('Не важно') && coliver.textContent.includes('важно')) {
-        coliver.classList.add('custom-checkbox--active');
-      }
-    });
+    if (document.querySelector('.userMeta').textContent !== '') {
+      var userRoom = document.querySelector('.userRoom');
+      checkboxesRoom.forEach(function (room) {
+        room.classList.remove('custom-checkbox--active');
+        if (userRoom.textContent.includes('1') && room.textContent.includes('1')) {
+          room.classList.add('custom-checkbox--active');
+        } else if (userRoom.textContent.includes('2') && room.textContent.includes('2')) {
+          room.classList.add('custom-checkbox--active');
+        } else if (userRoom.textContent.includes('3') && room.textContent.includes('3')) {
+          room.classList.add('custom-checkbox--active');
+        } else if (userRoom.textContent.includes('4+') && room.textContent.includes('4+')) {
+          room.classList.add('custom-checkbox--active');
+        } else if (userRoom.textContent.includes('4') && room.textContent.includes('4') && !userRoom.textContent.includes('+') && !room.textContent.includes('+')) {
+          room.classList.add('custom-checkbox--active');
+        }
+      });
+      var userRepair = document.querySelector('.userRepair');
+      checkboxesRepair.forEach(function (repair) {
+        repair.classList.remove('custom-checkbox--active');
+        if (userRepair.textContent.includes('бабушкин') && repair.textContent.includes('бабушкин')) {
+          repair.classList.add('custom-checkbox--active');
+        } else if (userRepair.textContent.includes('Косметический') && repair.textContent.includes('Косметический')) {
+          repair.classList.add('custom-checkbox--active');
+        } else if (userRepair.textContent.includes('Дизайнерский') && repair.textContent.includes('Дизайнерский')) {
+          repair.classList.add('custom-checkbox--active');
+        } else if (userRepair.textContent.includes('Не важно') && repair.textContent.includes('важно')) {
+          repair.classList.add('custom-checkbox--active');
+        }
+      });
+      var userColiver = document.querySelector('.userColiver');
+      checkboxesColiver.forEach(function (coliver) {
+        coliver.classList.remove('custom-checkbox--active');
+        if (userColiver.textContent.includes('Собака') && coliver.textContent.includes('Собака')) {
+          coliver.classList.add('custom-checkbox--active');
+        } else if (userColiver.textContent.includes('Кот') && coliver.textContent.includes('Кот')) {
+          coliver.classList.add('custom-checkbox--active');
+        } else if (userColiver.textContent.includes('Другие') && coliver.textContent.includes('Другие')) {
+          coliver.classList.add('custom-checkbox--active');
+        } else if (userColiver.textContent.includes('Не важно') && coliver.textContent.includes('важно')) {
+          coliver.classList.add('custom-checkbox--active');
+        }
+      });
+    }
   }, 300);
 }
 if (document.getElementById('customSelect')) {
@@ -200,7 +202,7 @@ if (document.getElementById('customSelect')) {
 if (document.getElementById('userBudgetInput')) {
   var userBudget = document.querySelector('.userBudget');
   var value = 50000;
-  if (userBudget !== '') {
+  if (userBudget.textContent !== '') {
     value = parseInt(userBudget.textContent);
     $("#userBudgetInput").val(value);
   }
@@ -223,12 +225,48 @@ if (document.getElementById('userBudgetInput')) {
   });
 }
 if (document.querySelector('.submitForm')) {
+  var getRoomsAmount = function getRoomsAmount() {
+    var roomsCheckboxes = document.querySelectorAll('.roomCheckbox');
+    roomsCheckboxes.forEach(function (box) {
+      if (box.classList.contains('custom-checkbox--active')) {
+        var _value = box.textContent;
+        roomsAmount += _value;
+        roomsAmount += ', ';
+      }
+    });
+    roomsAmount = roomsAmount.trim();
+    roomsAmount = roomsAmount.slice(0, roomsAmount.length - 1);
+  };
+  var getRepairPrefs = function getRepairPrefs() {
+    var repairsCheckboxes = document.querySelectorAll('.repairCheckbox');
+    repairsCheckboxes.forEach(function (box) {
+      if (box.classList.contains('custom-checkbox--active')) {
+        var _value2 = box.getAttribute('data-value');
+        repairPrefs += _value2;
+        repairPrefs += ', ';
+      }
+    });
+    repairPrefs = repairPrefs.trim();
+    repairPrefs = repairPrefs.slice(0, repairPrefs.length - 1);
+  };
+  var getColiverPrefs = function getColiverPrefs() {
+    var coliverCheckboxes = document.querySelectorAll('.coliverCheckbox');
+    coliverCheckboxes.forEach(function (box) {
+      if (box.classList.contains('custom-checkbox--active')) {
+        var _value3 = box.getAttribute('data-value');
+        coliverPrefs += _value3;
+        coliverPrefs += ', ';
+      }
+    });
+    coliverPrefs = coliverPrefs.trim();
+    coliverPrefs = coliverPrefs.slice(0, coliverPrefs.length - 1);
+  };
   var submitForm = document.querySelector('.submitForm');
-  var _roomsAmount = '';
+  var roomsAmount = '';
   var budget = '';
   var areaSearch = '';
-  var _repairPrefs = '';
-  var _coliverPrefs = '';
+  var repairPrefs = '';
+  var coliverPrefs = '';
   var prefsObject = {
     roomsAmount: '',
     budget: '',
@@ -248,11 +286,11 @@ if (document.querySelector('.submitForm')) {
     var inputArea = document.getElementById('areaSearch');
     var inputRepairs = document.getElementById('repairPrefs');
     var inputColiver = document.getElementById('coliverPrefs');
-    inputRooms.value = _roomsAmount;
+    inputRooms.value = roomsAmount;
     inputBudget.value = budget;
     inputArea.value = areaSearch;
-    inputRepairs.value = _repairPrefs;
-    inputColiver.value = _coliverPrefs;
+    inputRepairs.value = repairPrefs;
+    inputColiver.value = coliverPrefs;
     document.getElementById('prefsForm').submit();
   });
 }
@@ -279,43 +317,6 @@ if (document.querySelector('.submitForm')) {
 //         });
 // });
 // });
-
-function getRoomsAmount() {
-  var roomsCheckboxes = document.querySelectorAll('.roomCheckbox');
-  roomsCheckboxes.forEach(function (box) {
-    if (box.classList.contains('custom-checkbox--active')) {
-      var _value = box.textContent;
-      roomsAmount += _value;
-      roomsAmount += ', ';
-    }
-  });
-  roomsAmount = roomsAmount.trim();
-  roomsAmount = roomsAmount.slice(0, roomsAmount.length - 1);
-}
-function getRepairPrefs() {
-  var repairsCheckboxes = document.querySelectorAll('.repairCheckbox');
-  repairsCheckboxes.forEach(function (box) {
-    if (box.classList.contains('custom-checkbox--active')) {
-      var _value2 = box.getAttribute('data-value');
-      repairPrefs += _value2;
-      repairPrefs += ', ';
-    }
-  });
-  repairPrefs = repairPrefs.trim();
-  repairPrefs = repairPrefs.slice(0, repairPrefs.length - 1);
-}
-function getColiverPrefs() {
-  var coliverCheckboxes = document.querySelectorAll('.coliverCheckbox');
-  coliverCheckboxes.forEach(function (box) {
-    if (box.classList.contains('custom-checkbox--active')) {
-      var _value3 = box.getAttribute('data-value');
-      coliverPrefs += _value3;
-      coliverPrefs += ', ';
-    }
-  });
-  coliverPrefs = coliverPrefs.trim();
-  coliverPrefs = coliverPrefs.slice(0, coliverPrefs.length - 1);
-}
 
 // Swiper Section
 

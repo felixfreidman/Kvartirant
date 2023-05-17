@@ -33,6 +33,44 @@ if (document.querySelector('.submitForm')) {
         inputColiver.value = coliverPrefs;
         document.getElementById('prefsForm').submit();
     });
+    function getRoomsAmount() {
+        const roomsCheckboxes = document.querySelectorAll('.roomCheckbox');
+        roomsCheckboxes.forEach(box => {
+            if (box.classList.contains('custom-checkbox--active')) {
+                let value = box.textContent;
+                roomsAmount += value;
+                roomsAmount += ', '
+            }
+        })
+        roomsAmount = roomsAmount.trim();
+        roomsAmount = roomsAmount.slice(0, roomsAmount.length - 1);
+    }
+
+    function getRepairPrefs() {
+        const repairsCheckboxes = document.querySelectorAll('.repairCheckbox');
+        repairsCheckboxes.forEach(box => {
+            if (box.classList.contains('custom-checkbox--active')) {
+                let value = box.getAttribute('data-value');
+                repairPrefs += value;
+                repairPrefs += ', '
+            }
+        })
+        repairPrefs = repairPrefs.trim();
+        repairPrefs = repairPrefs.slice(0, repairPrefs.length - 1);
+    }
+
+    function getColiverPrefs() {
+        const coliverCheckboxes = document.querySelectorAll('.coliverCheckbox');
+        coliverCheckboxes.forEach(box => {
+            if (box.classList.contains('custom-checkbox--active')) {
+                let value = box.getAttribute('data-value');
+                coliverPrefs += value;
+                coliverPrefs += ', '
+            }
+        })
+        coliverPrefs = coliverPrefs.trim();
+        coliverPrefs = coliverPrefs.slice(0, coliverPrefs.length - 1);
+    }
 }
 
 
@@ -59,43 +97,6 @@ if (document.querySelector('.submitForm')) {
 // });
 // });
 
-function getRoomsAmount() {
-    const roomsCheckboxes = document.querySelectorAll('.roomCheckbox');
-    roomsCheckboxes.forEach(box => {
-        if (box.classList.contains('custom-checkbox--active')) {
-            let value = box.textContent;
-            roomsAmount += value;
-            roomsAmount += ', '
-        }
-    })
-    roomsAmount = roomsAmount.trim();
-    roomsAmount = roomsAmount.slice(0, roomsAmount.length - 1);
-}
 
-function getRepairPrefs() {
-    const repairsCheckboxes = document.querySelectorAll('.repairCheckbox');
-    repairsCheckboxes.forEach(box => {
-        if (box.classList.contains('custom-checkbox--active')) {
-            let value = box.getAttribute('data-value');
-            repairPrefs += value;
-            repairPrefs += ', '
-        }
-    })
-    repairPrefs = repairPrefs.trim();
-    repairPrefs = repairPrefs.slice(0, repairPrefs.length - 1);
-}
-
-function getColiverPrefs() {
-    const coliverCheckboxes = document.querySelectorAll('.coliverCheckbox');
-    coliverCheckboxes.forEach(box => {
-        if (box.classList.contains('custom-checkbox--active')) {
-            let value = box.getAttribute('data-value');
-            coliverPrefs += value;
-            coliverPrefs += ', '
-        }
-    })
-    coliverPrefs = coliverPrefs.trim();
-    coliverPrefs = coliverPrefs.slice(0, coliverPrefs.length - 1);
-}
 
 

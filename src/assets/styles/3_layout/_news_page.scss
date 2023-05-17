@@ -1,6 +1,8 @@
 .main--news {
     height: fit-content;
     min-height: calc(100vh - 61px);
+    position: relative;
+    z-index: 3;
 }
 
 .news-section {
@@ -26,5 +28,7 @@
 
     .adt-card {
         margin-bottom: 20px;
+        position: relative;
+        z-index: 3;
     }
 }

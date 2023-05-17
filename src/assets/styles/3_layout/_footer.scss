@@ -5,6 +5,8 @@
     background-color: $white;
     padding: 8px 160px;
     box-shadow: 0px 2px 10px 2px #333F48;
+    position: relative;
+    z-index: 3;
 }
 
 .created {

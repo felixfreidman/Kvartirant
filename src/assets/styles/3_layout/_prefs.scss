@@ -12,6 +12,8 @@
     display: flex;
     align-items: flex-start;
     justify-content: center;
+    position: relative;
+    z-index: 3;
 
     &--1 {
         align-items: center;
