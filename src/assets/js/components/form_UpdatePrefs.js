@@ -1,39 +1,39 @@
+if (document.querySelector('.submitForm')) {
+    const submitForm = document.querySelector('.submitForm');
+    let roomsAmount = '';
+    let budget = '';
+    let areaSearch = '';
+    let repairPrefs = '';
+    let coliverPrefs = '';
 
+    let prefsObject = {
+        roomsAmount: '',
+        budget: '',
+        areaSearch: '',
+        repairPrefs: '',
+        coliverPrefs: '',
+    }
 
-const submitForm = document.querySelector('.submitForm');
-let roomsAmount = '';
-let budget = '';
-let areaSearch = '';
-let repairPrefs = '';
-let coliverPrefs = '';
-
-let prefsObject = {
-    roomsAmount: '',
-    budget: '',
-    areaSearch: '',
-    repairPrefs: '',
-    coliverPrefs: '',
+    submitForm.addEventListener('click', () => {
+        submitForm.classList.add('js--inactive')
+        getRoomsAmount();
+        getRepairPrefs();
+        getColiverPrefs();
+        budget = document.getElementById('userBudgetInput').value;
+        areaSearch = document.getElementById('customSelect').textContent;
+        const inputRooms = document.getElementById('roomsAmount');
+        const inputBudget = document.getElementById('budgetAmount');
+        const inputArea = document.getElementById('areaSearch');
+        const inputRepairs = document.getElementById('repairPrefs');
+        const inputColiver = document.getElementById('coliverPrefs');
+        inputRooms.value = roomsAmount;
+        inputBudget.value = budget;
+        inputArea.value = areaSearch;
+        inputRepairs.value = repairPrefs;
+        inputColiver.value = coliverPrefs;
+        document.getElementById('prefsForm').submit();
+    });
 }
-
-submitForm.addEventListener('click', () => {
-    submitForm.classList.add('js--inactive')
-    getRoomsAmount();
-    getRepairPrefs();
-    getColiverPrefs();
-    budget = document.getElementById('userBudgetInput').value;
-    areaSearch = document.getElementById('customSelect').textContent;
-    const inputRooms = document.getElementById('roomsAmount');
-    const inputBudget = document.getElementById('budgetAmount');
-    const inputArea = document.getElementById('areaSearch');
-    const inputRepairs = document.getElementById('repairPrefs');
-    const inputColiver = document.getElementById('coliverPrefs');
-    inputRooms.value = roomsAmount;
-    inputBudget.value = budget;
-    inputArea.value = areaSearch;
-    inputRepairs.value = repairPrefs;
-    inputColiver.value = coliverPrefs;
-    document.getElementById('prefsForm').submit();
-});
 
 
 // $(function () {

@@ -1,6 +1,21 @@
 <?php /* Template Name: Prefs Page */?>
 <?php get_header()?>
-<?php    get_currentuserinfo(); ?>
+<?php
+
+$user_id = get_current_user_id();
+$userRoom = 'roomAmount_pref';
+$userRepair = 'repair_pref';
+$userColiver = 'animals_pref';
+$userBudget = 'money_pref';
+$userArea = 'area_pref';
+?>
+<div class="userMeta userRoom js--hidden"><?php echo get_the_author_meta( $userRoom, $user_id );?></div>
+<div class="userMeta userRepair js--hidden"><?php echo get_the_author_meta( $userRepair, $user_id );?></div>
+<div class="userMeta userColiver js--hidden"><?php echo get_the_author_meta( $userColiver, $user_id );?></div>
+<div class="userMeta userBudget js--hidden"><?php echo get_the_author_meta( $userBudget, $user_id );?></div>
+<div class="userMeta userArea js--hidden"><?php echo get_the_author_meta( $userArea, $user_id );?></div>
+
+
 <form method="POST" id="prefsForm" class="main main-prefs"
     action="<?php echo get_template_directory_uri() . '/handler/prefs-handler.php'?>">
     <div class="pref-slide pref-slide--1">
@@ -77,12 +92,12 @@
             <div class="pref-slide__button submitForm">Продолжить</div>
         </div>
     </div>
-    <input type="text" name="currentUserID" value="<?php echo get_current_user_id() ?>">
-    <input type="text" name="roomsAmount" id="roomsAmount" value="" />
-    <input type="text" name="budgetAmount" id="budgetAmount" value="" />
-    <input type="text" name="areaSearch" id="areaSearch" value="" />
-    <input type="text" name="repairPrefs" id="repairPrefs" value="" />
-    <input type="text" name="coliverPrefs" id="coliverPrefs" value="" />
+    <input type="text" name="currentUserID" class="js--hidden" value="<?php echo get_current_user_id() ?>">
+    <input type="text" name="roomsAmount" class="js--hidden" id="roomsAmount" value="" />
+    <input type="text" name="budgetAmount" class="js--hidden" id="budgetAmount" value="" />
+    <input type="text" name="areaSearch" class="js--hidden" id="areaSearch" value="" />
+    <input type="text" name="repairPrefs" class="js--hidden" id="repairPrefs" value="" />
+    <input type="text" name="coliverPrefs" class="js--hidden" id="coliverPrefs" value="" />
 </form>
 <script src="<?php echo get_template_directory_uri() . '/assets/js/jquery.min.js' ?>">
 </script>

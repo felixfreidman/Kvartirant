@@ -280,7 +280,7 @@ function rcl_get_user_contacts_list( $user_id ) {
 		}
 
 		return rcl_get_notice( [
-			'text' => 'Пока контактов нет. Начните переписку на странице другого пользователя. <a href="http://localhost/kvartirant/wp/users/">Выберите из списка пользователей.</a>'
+			'text' => 'Пока контактов нет.</a>'
 		] );
 	}
 
