@@ -1,6 +1,5 @@
 "use strict";
 
-// const roomChecks = document.querySelectorAll('.custom-checkbox');
 var checkboxesRepair = document.querySelectorAll('.repairCheckbox');
 var resetRepair = document.querySelector('.resetCheckboxRepair');
 var checkboxesColiver = document.querySelectorAll('.coliverCheckbox');
@@ -78,7 +77,53 @@ function resetCheckboxRoom() {
     resetRoom.classList.add('custom-checkbox--active');
   }
 }
+if (window.location.href.includes('prefs')) {
+  setTimeout(function () {
+    var userRoom = document.querySelector('.userRoom');
+    checkboxesRoom.forEach(function (room) {
+      room.classList.remove('custom-checkbox--active');
+      if (userRoom.textContent.includes('1') && room.textContent.includes('1')) {
+        room.classList.add('custom-checkbox--active');
+      } else if (userRoom.textContent.includes('2') && room.textContent.includes('2')) {
+        room.classList.add('custom-checkbox--active');
+      } else if (userRoom.textContent.includes('3') && room.textContent.includes('3')) {
+        room.classList.add('custom-checkbox--active');
+      } else if (userRoom.textContent.includes('4+') && room.textContent.includes('4+')) {
+        room.classList.add('custom-checkbox--active');
+      } else if (userRoom.textContent.includes('4') && room.textContent.includes('4') && !userRoom.textContent.includes('+') && !room.textContent.includes('+')) {
+        room.classList.add('custom-checkbox--active');
+      }
+    });
+    var userRepair = document.querySelector('.userRepair');
+    checkboxesRepair.forEach(function (repair) {
+      repair.classList.remove('custom-checkbox--active');
+      if (userRepair.textContent.includes('бабушкин') && repair.textContent.includes('бабушкин')) {
+        repair.classList.add('custom-checkbox--active');
+      } else if (userRepair.textContent.includes('Косметический') && repair.textContent.includes('Косметический')) {
+        repair.classList.add('custom-checkbox--active');
+      } else if (userRepair.textContent.includes('Дизайнерский') && repair.textContent.includes('Дизайнерский')) {
+        repair.classList.add('custom-checkbox--active');
+      } else if (userRepair.textContent.includes('Не важно') && repair.textContent.includes('важно')) {
+        repair.classList.add('custom-checkbox--active');
+      }
+    });
+    var userColiver = document.querySelector('.userColiver');
+    checkboxesColiver.forEach(function (coliver) {
+      coliver.classList.remove('custom-checkbox--active');
+      if (userColiver.textContent.includes('Собака') && coliver.textContent.includes('Собака')) {
+        coliver.classList.add('custom-checkbox--active');
+      } else if (userColiver.textContent.includes('Кот') && coliver.textContent.includes('Кот')) {
+        coliver.classList.add('custom-checkbox--active');
+      } else if (userColiver.textContent.includes('Другие') && coliver.textContent.includes('Другие')) {
+        coliver.classList.add('custom-checkbox--active');
+      } else if (userColiver.textContent.includes('Не важно') && coliver.textContent.includes('важно')) {
+        coliver.classList.add('custom-checkbox--active');
+      }
+    });
+  }, 300);
+}
 if (document.getElementById('customSelect')) {
+  var userArea = document.querySelector('.userArea');
   var customSelect = document.getElementById('customSelect');
   var selectContainer = document.querySelector('.pref-slide__select-container');
   var selectOptions = selectContainer.querySelectorAll('.pref-slide__option');
@@ -97,12 +142,29 @@ if (document.getElementById('customSelect')) {
     option.addEventListener('click', function () {
       if (index != 0) {
         selectOptions[0].classList.remove('pref-slide__option--active');
-        option.classList.toggle('pref-slide__option--active');
-        customSelect.textContent = customSelect.textContent.replace('Все районы', '');
-        if (customSelect.textContent == '') {
-          customSelect.textContent = "".concat(option.textContent.slice(0, 5));
+        if (option.classList.contains('pref-slide__option--active')) {
+          option.classList.remove('pref-slide__option--active');
+          if (customSelect.textContent.includes(", ".concat(option.textContent.slice(0, 5)))) {
+            customSelect.textContent = customSelect.textContent.replace(", ".concat(option.textContent.slice(0, 5)), '');
+          } else {
+            customSelect.textContent = customSelect.textContent.replace("".concat(option.textContent.slice(0, 5)), '');
+          }
+          if (customSelect.textContent.trim() == '') {
+            customSelect.textContent = 'Все районы';
+            selectOptions[0].classList.add('pref-slide__option--active');
+          }
+        } else if (!option.classList.contains('pref-slide__option--active')) {
+          option.classList.add('pref-slide__option--active');
+          customSelect.textContent = customSelect.textContent.replace('Все районы', '');
+          customSelect.textContent = "".concat(customSelect.textContent, " ").concat(option.textContent.slice(0, 5));
         } else {
-          customSelect.textContent = "".concat(customSelect.textContent, ", ").concat(option.textContent.slice(0, 5));
+          option.classList.add('pref-slide__option--active');
+          customSelect.textContent = customSelect.textContent.replace('Все районы', '');
+          if (customSelect.textContent == '') {
+            customSelect.textContent = "".concat(option.textContent.slice(0, 5));
+          } else {
+            customSelect.textContent = "".concat(customSelect.textContent, ", ").concat(option.textContent.slice(0, 5));
+          }
         }
       } else {
         selectOptions.forEach(function (inner_option) {
@@ -113,15 +175,42 @@ if (document.getElementById('customSelect')) {
       }
     });
   });
+  if (userArea.textContent !== '') {
+    customSelect.textContent = userArea.textContent;
+    selectOptions.forEach(function (option) {
+      if (userArea.textContent.includes('Лен') && option.textContent.includes('Лен')) {
+        option.classList.add('pref-slide__option--active');
+        selectOptions[0].classList.remove('pref-slide__option--active');
+      } else if (userArea.textContent.includes('Окт') && option.textContent.includes('Окт')) {
+        option.classList.add('pref-slide__option--active');
+        selectOptions[0].classList.remove('pref-slide__option--active');
+      } else if (userArea.textContent.includes('Свер') && option.textContent.includes('Свер')) {
+        option.classList.add('pref-slide__option--active');
+        selectOptions[0].classList.remove('pref-slide__option--active');
+      } else if (userArea.textContent.includes('Право') && option.textContent.includes('Право')) {
+        option.classList.add('pref-slide__option--active');
+        selectOptions[0].classList.remove('pref-slide__option--active');
+      } else if (userArea.textContent.includes('Все') && option.textContent.includes('Все')) {
+        option.classList.add('pref-slide__option--active');
+        selectOptions[0].classList.remove('pref-slide__option--active');
+      }
+    });
+  }
 }
 if (document.getElementById('userBudgetInput')) {
+  var userBudget = document.querySelector('.userBudget');
+  var value = 50000;
+  if (userBudget !== '') {
+    value = parseInt(userBudget.textContent);
+    $("#userBudgetInput").val(value);
+  }
   $(function () {
     $("#userBudget").slider({
       range: "min",
       min: 0,
       max: 200000,
       step: 1000,
-      value: 50000,
+      value: value,
       slide: function slide(event, ui) {
         $("#userBudgetInput").val(ui.value);
       }
@@ -133,38 +222,40 @@ if (document.getElementById('userBudgetInput')) {
     $("#userBudget").slider("value", valueInput);
   });
 }
-var submitForm = document.querySelector('.submitForm');
-var roomsAmount = '';
-var budget = '';
-var areaSearch = '';
-var repairPrefs = '';
-var coliverPrefs = '';
-var prefsObject = {
-  roomsAmount: '',
-  budget: '',
-  areaSearch: '',
-  repairPrefs: '',
-  coliverPrefs: ''
-};
-submitForm.addEventListener('click', function () {
-  submitForm.classList.add('js--inactive');
-  getRoomsAmount();
-  getRepairPrefs();
-  getColiverPrefs();
-  budget = document.getElementById('userBudgetInput').value;
-  areaSearch = document.getElementById('customSelect').textContent;
-  var inputRooms = document.getElementById('roomsAmount');
-  var inputBudget = document.getElementById('budgetAmount');
-  var inputArea = document.getElementById('areaSearch');
-  var inputRepairs = document.getElementById('repairPrefs');
-  var inputColiver = document.getElementById('coliverPrefs');
-  inputRooms.value = roomsAmount;
-  inputBudget.value = budget;
-  inputArea.value = areaSearch;
-  inputRepairs.value = repairPrefs;
-  inputColiver.value = coliverPrefs;
-  document.getElementById('prefsForm').submit();
-});
+if (document.querySelector('.submitForm')) {
+  var submitForm = document.querySelector('.submitForm');
+  var _roomsAmount = '';
+  var budget = '';
+  var areaSearch = '';
+  var _repairPrefs = '';
+  var _coliverPrefs = '';
+  var prefsObject = {
+    roomsAmount: '',
+    budget: '',
+    areaSearch: '',
+    repairPrefs: '',
+    coliverPrefs: ''
+  };
+  submitForm.addEventListener('click', function () {
+    submitForm.classList.add('js--inactive');
+    getRoomsAmount();
+    getRepairPrefs();
+    getColiverPrefs();
+    budget = document.getElementById('userBudgetInput').value;
+    areaSearch = document.getElementById('customSelect').textContent;
+    var inputRooms = document.getElementById('roomsAmount');
+    var inputBudget = document.getElementById('budgetAmount');
+    var inputArea = document.getElementById('areaSearch');
+    var inputRepairs = document.getElementById('repairPrefs');
+    var inputColiver = document.getElementById('coliverPrefs');
+    inputRooms.value = _roomsAmount;
+    inputBudget.value = budget;
+    inputArea.value = areaSearch;
+    inputRepairs.value = _repairPrefs;
+    inputColiver.value = _coliverPrefs;
+    document.getElementById('prefsForm').submit();
+  });
+}
 
 // $(function () {
 //     $("#prefsForm").on("submit", function (e) {
@@ -193,8 +284,8 @@ function getRoomsAmount() {
   var roomsCheckboxes = document.querySelectorAll('.roomCheckbox');
   roomsCheckboxes.forEach(function (box) {
     if (box.classList.contains('custom-checkbox--active')) {
-      var value = box.textContent;
-      roomsAmount += value;
+      var _value = box.textContent;
+      roomsAmount += _value;
       roomsAmount += ', ';
     }
   });
@@ -205,8 +296,8 @@ function getRepairPrefs() {
   var repairsCheckboxes = document.querySelectorAll('.repairCheckbox');
   repairsCheckboxes.forEach(function (box) {
     if (box.classList.contains('custom-checkbox--active')) {
-      var value = box.getAttribute('data-value');
-      repairPrefs += value;
+      var _value2 = box.getAttribute('data-value');
+      repairPrefs += _value2;
       repairPrefs += ', ';
     }
   });
@@ -217,8 +308,8 @@ function getColiverPrefs() {
   var coliverCheckboxes = document.querySelectorAll('.coliverCheckbox');
   coliverCheckboxes.forEach(function (box) {
     if (box.classList.contains('custom-checkbox--active')) {
-      var value = box.getAttribute('data-value');
-      coliverPrefs += value;
+      var _value3 = box.getAttribute('data-value');
+      coliverPrefs += _value3;
       coliverPrefs += ', ';
     }
   });
@@ -262,8 +353,6 @@ function activateForms() {
     var signupForm = document.querySelector('.signup-form');
     var captionIn = signinForm.querySelector('.caption');
     var captionUp = signupForm.querySelector('.caption');
-    var formSignInReal = document.getElementById('signin-special');
-    var formSignUpReal = document.getElementById('signup-special');
     captionIn.addEventListener('click', function () {
       signinForm.classList.add('js--hidden');
       signupForm.classList.remove('js--hidden');
@@ -271,12 +360,6 @@ function activateForms() {
     captionUp.addEventListener('click', function () {
       signinForm.classList.remove('js--hidden');
       signupForm.classList.add('js--hidden');
-    });
-    formSignInReal.addEventListener('click', function () {
-      localStorage.setItem('logged', true);
-    });
-    formSignUpReal.addEventListener('click', function () {
-      localStorage.setItem('logged', true);
     });
   }
 }
