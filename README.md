@@ -1,4 +1,4 @@
-<img src="https://apartaid.ru/wp-content/themes/kvartirant/screenshot.png" />
+<img src="https://imgur.com/oJdTnuQ" />
 
 <h1>Релизные функции на версии 2.1.0</h1>
 
