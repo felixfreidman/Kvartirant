@@ -5,6 +5,24 @@
 }
 
 @media screen and (max-width: 1080px) {
+    .news-section {
+        .adt-card__images .swiper {
+            max-height: 150px;
+        }
+
+        .adt-card__images .swiper-slide {
+            max-height: 150px;
+
+            img {
+                max-height: 150px;
+            }
+        }
+    }
+
+    .pref-slide__input {
+        margin-bottom: 20px;
+    }
+
     .page-header {
         font-size: 48px;
         line-height: 120%;
@@ -30,6 +48,33 @@
     .why-card {
         width: calc(50% - 10px);
         margin-bottom: 20px;
+        pointer-events: none;
+
+        &:nth-child(1) {
+            transform: translateY(0) !important;
+        }
+
+        &:nth-child(3) {
+            transform: translateY(0) !important;
+        }
+
+        &:nth-child(2) {
+            transform: translateY(0) !important;
+        }
+
+        &:nth-child(4) {
+            transform: translateY(0) !important;
+        }
+
+        .container--horizontal {
+            flex-wrap: nowrap;
+
+            .why-card__header {
+                br {
+                    display: none;
+                }
+            }
+        }
     }
 
     .why-section,
@@ -124,11 +169,38 @@
         flex-direction: column;
         align-items: start;
     }
+
+    .main-profile .rcl-table__row {
+        width: 100%;
+    }
+
+    .message-meta {
+        display: flex;
+        align-items: center;
+    }
+
+    .main-profile .message-text,
+    .main-profile .time-message {
+        font-size: 12px;
+    }
+
+    .main-profile .message-text {
+        display: flex;
+        align-items: center;
+    }
 }
 
 @media screen and (max-width: 700px) {
     .account {
         display: none;
+    }
+
+    .mobile-link {
+        .account {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
     }
 
     .social-container__link {
@@ -141,7 +213,11 @@
     }
 
     .subs-section {
-        padding-bottom: 80px;
+        padding-bottom: 40px;
+    }
+
+    .list-link {
+        display: none;
     }
 
 
@@ -151,7 +227,7 @@
         bottom: 0;
         height: 61px;
         left: 0;
-        width: 100%;
+        width: 100vw;
         display: flex;
         align-items: center;
         background-color: $white;
@@ -191,6 +267,50 @@
 
     .main-profile--settings .display-container .info-value {
         width: 100%;
+    }
+
+    .form-section {
+        padding-bottom: 121px;
+    }
+
+    .main-profile .message-box .message-text {
+        font-size: 12px;
+    }
+
+    #lk-content {
+        width: 100%;
+    }
+
+    .main-profile .avatar-contact,
+    .main-profile .user-avatar {
+        width: 20px;
+        min-width: 20px;
+        height: 20px;
+        min-height: 20px;
+        margin-right: 20px;
+        border-radius: 50%;
+    }
+
+    .main-profile .message-box .author-name {
+        font-size: 12px;
+    }
+
+    .main-profile .message-time {
+        font-size: 12px;
+    }
+
+    .main-profile .author-name {
+        font-size: 18px;
+    }
+
+    .chat-contact>.avatar-contact {
+        width: 40px;
+        min-width: 40px;
+        height: 40px;
+        min-height: 40px;
+        margin-right: 40px;
+        border-radius: 50%;
+        margin-right: 20px;
     }
 }
 
@@ -236,6 +356,23 @@
 }
 
 @media screen and (max-width: 580px) {
+    .main-profile #rcl-office {
+        max-height: calc(100vh - 122px);
+
+    }
+
+    .main-profile {
+        max-height: calc(100vh - 122px);
+    }
+
+    #display-container {
+        max-height: calc(100vh - 122px);
+        overflow-y: scroll;
+    }
+
+    #your-profile {
+        padding-bottom: 40px;
+    }
 
     .adt-card,
     .why-card {
@@ -273,7 +410,6 @@
     .form-container {
         background: linear-gradient(0deg, rgba(51, 63, 72, .6), rgba(51, 63, 72, .6)),
             url(./assets/images/content/background1.jpg);
-        background-attachment: fixed;
         background-position: 50% 50%;
         background-size: cover;
         background-repeat: no-repeat;
@@ -330,6 +466,7 @@
         display: flex;
         flex-direction: column;
         align-items: start;
+        z-index: 5;
 
         span {
             width: 100%;
@@ -366,9 +503,90 @@
         opacity: 1;
         transform: translateX(0);
     }
+
+    .opener--active~#rcl-office #main-container {
+        display: flex !important;
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    .news-section {
+        .adt-card {
+            height: fit-content;
+        }
+
+        .adt-card__container {
+            height: fit-content;
+            min-height: 0;
+        }
+
+        .adt-card__images {
+            max-height: 150px;
+        }
+
+        .adt-card__images .swiper {
+            max-height: 150px;
+        }
+
+        .adt-card__images .swiper-slide {
+            max-height: 150px;
+
+            img {
+                max-height: 150px;
+            }
+        }
+    }
+
+    #lk-content {
+        width: 100%;
+    }
+
+
+
+    #display-container {
+        height: calc(100vh - 122px);
+        position: relative;
+
+        #personal {
+            height: 100%;
+
+            #lk-content {
+                height: 100%;
+
+                #tab-chat {
+                    height: 100%;
+                }
+
+                #subtab-private-contacts {
+                    height: 100%;
+
+                    .rcl-chat {
+                        height: 100%;
+                    }
+
+                    .chat-form {
+                        position: absolute;
+                        bottom: 40px;
+                        left: 0;
+                        right: 0;
+                        margin-left: auto;
+                        margin-right: auto;
+                    }
+                }
+            }
+        }
+    }
 }
 
 @media screen and (max-width: 490px) {
+    .main-profile .chat-messages-box {
+        max-height: calc(45vh);
+    }
+
+    .main-container {
+
+        z-index: 5;
+    }
 
     .section-header br,
     .page-header br {
@@ -432,7 +650,7 @@
         padding-left: 16px;
         padding-right: 16px;
         width: 100%;
-        padding-bottom: 80px;
+        padding-bottom: 140px;
     }
 
     .pref-slide .container--vertical {
@@ -462,11 +680,49 @@
         margin-right: 0;
         margin-left: 0;
     }
+
+    .footer-navigation {
+        height: 48px;
+    }
+
+    .main-profile .chat-form form a {
+        position: relative;
+        width: 30px !important;
+        min-width: 30px !important;
+        height: 30px !important;
+        min-height: 30px !important;
+        border-radius: 50% !important;
+    }
+
+    .main-profile .chat-form form a::after {
+        position: absolute;
+        z-index: 5;
+        display: block;
+        width: 15px;
+        height: 15px;
+        content: '';
+        background-image: url(./assets/images/content/send_logo.svg);
+        background-size: contain;
+        -webkit-filter: invert(1);
+        filter: invert(1);
+    }
+
+    .main-profile .chat-form textarea {
+        margin-right: 20px;
+    }
+
+    .main-profile .chat-form .words-counter {
+        right: 50px;
+    }
 }
 
 @media screen and (max-width: 420px) {
+    .sign-form {
+        max-width: 280px;
+    }
+
     .page-header {
-        font-size: 32px;
+        font-size: 30px;
     }
 
     .section-header {
@@ -523,9 +779,37 @@
     .sign-form {
         padding: 16px;
     }
+
+    .form-container__input {
+        padding: 10px;
+        font-size: 12px;
+    }
+
+    .main-profile .avatar-image {
+        width: 280px;
+        height: 280px;
+    }
+
+    .main-profile #rcl-avatar {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .main-profile .lk-sidebar {
+        width: 100%;
+    }
+
+    .main-profile .uploader {
+        bottom: 0;
+    }
 }
 
 @media screen and (max-width: 370px) {
+    .main-profile .chat-messages-box {
+        max-height: calc(32vh);
+    }
+
     .form-container__header {
         font-size: 22px;
     }
@@ -537,5 +821,32 @@
 
     .section-header {
         font-size: 22px;
+    }
+
+    .header-list .list-item {
+        font-size: 18px;
+    }
+
+    .why-card__caption {
+        font-size: 14px;
+    }
+
+    .main-profile .avatar-image {
+        width: 200px;
+        height: 200px;
+    }
+
+    .main-profile #rcl-avatar {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .main-profile .lk-sidebar {
+        width: 100%;
+    }
+
+    .main-profile .uploader {
+        bottom: 0;
     }
 }

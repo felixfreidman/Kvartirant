@@ -12,6 +12,14 @@ html {
     height: fit-content;
     min-height: calc(100vh - 61px);
 
+    &::after {
+        display: none;
+    }
+
+    &::before {
+        display: none;
+    }
+
     #menu-header {
         display: none;
     }

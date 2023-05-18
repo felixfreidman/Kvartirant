@@ -90,47 +90,50 @@ function resetCheckboxRoom() {
 
 if (window.location.href.includes('prefs')) {
     setTimeout(() => {
-        const userRoom = document.querySelector('.userRoom');
-        checkboxesRoom.forEach(room => {
-            room.classList.remove('custom-checkbox--active');
-            if (userRoom.textContent.includes('1') && room.textContent.includes('1')) {
-                room.classList.add('custom-checkbox--active');
-            } else if (userRoom.textContent.includes('2') && room.textContent.includes('2')) {
-                room.classList.add('custom-checkbox--active');
-            } else if (userRoom.textContent.includes('3') && room.textContent.includes('3')) {
-                room.classList.add('custom-checkbox--active');
-            } else if (userRoom.textContent.includes('4+') && room.textContent.includes('4+')) {
-                room.classList.add('custom-checkbox--active');
-            } else if (userRoom.textContent.includes('4') && room.textContent.includes('4') && !userRoom.textContent.includes('+') && !room.textContent.includes('+')) {
-                room.classList.add('custom-checkbox--active');
-            }
-        });
-        const userRepair = document.querySelector('.userRepair');
-        checkboxesRepair.forEach(repair => {
-            repair.classList.remove('custom-checkbox--active');
-            if (userRepair.textContent.includes('бабушкин') && repair.textContent.includes('бабушкин')) {
-                repair.classList.add('custom-checkbox--active');
-            } else if (userRepair.textContent.includes('Косметический') && repair.textContent.includes('Косметический')) {
-                repair.classList.add('custom-checkbox--active');
-            } else if (userRepair.textContent.includes('Дизайнерский') && repair.textContent.includes('Дизайнерский')) {
-                repair.classList.add('custom-checkbox--active');
-            } else if (userRepair.textContent.includes('Не важно') && repair.textContent.includes('важно')) {
-                repair.classList.add('custom-checkbox--active');
-            }
-        });
-        const userColiver = document.querySelector('.userColiver');
-        checkboxesColiver.forEach(coliver => {
-            coliver.classList.remove('custom-checkbox--active');
-            if (userColiver.textContent.includes('Собака') && coliver.textContent.includes('Собака')) {
-                coliver.classList.add('custom-checkbox--active');
-            } else if (userColiver.textContent.includes('Кот') && coliver.textContent.includes('Кот')) {
-                coliver.classList.add('custom-checkbox--active');
-            } else if (userColiver.textContent.includes('Другие') && coliver.textContent.includes('Другие')) {
-                coliver.classList.add('custom-checkbox--active');
-            } else if (userColiver.textContent.includes('Не важно') && coliver.textContent.includes('важно')) {
-                coliver.classList.add('custom-checkbox--active');
-            }
-        });
+
+        if (document.querySelector('.userMeta').textContent !== '') {
+            const userRoom = document.querySelector('.userRoom');
+            checkboxesRoom.forEach(room => {
+                room.classList.remove('custom-checkbox--active');
+                if (userRoom.textContent.includes('1') && room.textContent.includes('1')) {
+                    room.classList.add('custom-checkbox--active');
+                } else if (userRoom.textContent.includes('2') && room.textContent.includes('2')) {
+                    room.classList.add('custom-checkbox--active');
+                } else if (userRoom.textContent.includes('3') && room.textContent.includes('3')) {
+                    room.classList.add('custom-checkbox--active');
+                } else if (userRoom.textContent.includes('4+') && room.textContent.includes('4+')) {
+                    room.classList.add('custom-checkbox--active');
+                } else if (userRoom.textContent.includes('4') && room.textContent.includes('4') && !userRoom.textContent.includes('+') && !room.textContent.includes('+')) {
+                    room.classList.add('custom-checkbox--active');
+                }
+            });
+            const userRepair = document.querySelector('.userRepair');
+            checkboxesRepair.forEach(repair => {
+                repair.classList.remove('custom-checkbox--active');
+                if (userRepair.textContent.includes('бабушкин') && repair.textContent.includes('бабушкин')) {
+                    repair.classList.add('custom-checkbox--active');
+                } else if (userRepair.textContent.includes('Косметический') && repair.textContent.includes('Косметический')) {
+                    repair.classList.add('custom-checkbox--active');
+                } else if (userRepair.textContent.includes('Дизайнерский') && repair.textContent.includes('Дизайнерский')) {
+                    repair.classList.add('custom-checkbox--active');
+                } else if (userRepair.textContent.includes('Не важно') && repair.textContent.includes('важно')) {
+                    repair.classList.add('custom-checkbox--active');
+                }
+            });
+            const userColiver = document.querySelector('.userColiver');
+            checkboxesColiver.forEach(coliver => {
+                coliver.classList.remove('custom-checkbox--active');
+                if (userColiver.textContent.includes('Собака') && coliver.textContent.includes('Собака')) {
+                    coliver.classList.add('custom-checkbox--active');
+                } else if (userColiver.textContent.includes('Кот') && coliver.textContent.includes('Кот')) {
+                    coliver.classList.add('custom-checkbox--active');
+                } else if (userColiver.textContent.includes('Другие') && coliver.textContent.includes('Другие')) {
+                    coliver.classList.add('custom-checkbox--active');
+                } else if (userColiver.textContent.includes('Не важно') && coliver.textContent.includes('важно')) {
+                    coliver.classList.add('custom-checkbox--active');
+                }
+            });
+        }
     }, 300)
 
 }

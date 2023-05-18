@@ -354,7 +354,7 @@ unset( $rclOldOptionData );
 
 $options = apply_filters( 'rcl_options', $options );
 
-$content = '<h2>' . __( 'Configure WP-Recall plugin and add-ons', 'wp-recall' ) . '</h2>';
+$content = '<h2>' . __( 'Настройка личного кабинета', 'wp-recall' ) . '</h2>';
 
 $content .= $options->get_content();
 

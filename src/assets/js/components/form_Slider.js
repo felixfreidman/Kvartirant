@@ -1,7 +1,7 @@
 if (document.getElementById('userBudgetInput')) {
     const userBudget = document.querySelector('.userBudget');
     let value = 50000;
-    if (userBudget !== '') {
+    if (userBudget.textContent !== '') {
         value = parseInt(userBudget.textContent);
         $("#userBudgetInput").val(value);
     }

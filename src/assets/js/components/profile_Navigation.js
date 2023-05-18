@@ -12,7 +12,7 @@ if (pageLocation.includes('profile') || pageLocation.includes('subscription')) {
                 link.classList.add('profile-navigation__link--active');
                 sectionHeader.textContent = props[1];
                 avatarFrame.classList.add('js--hidden')
-            } else if (link.href.includes('user')
+            } else if (link.href.includes('user') && !link.href.includes('chat')
                 && pageLocation.includes('user') && !pageLocation.includes('chat')) {
                 link.classList.add('profile-navigation__link--active');
                 sectionHeader.textContent = props[0];
