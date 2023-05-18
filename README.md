@@ -1,4 +1,4 @@
-<img src="https://imgur.com/oJdTnuQ" />
+<img src="https://i.imgur.com/oJdTnuQ.png" />
 
 <h1>Релизные функции на версии 2.1.0</h1>
 
