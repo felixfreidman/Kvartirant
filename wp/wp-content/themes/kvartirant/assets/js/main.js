@@ -354,6 +354,7 @@ function activateForms() {
     var signupForm = document.querySelector('.signup-form');
     var captionIn = signinForm.querySelector('.caption');
     var captionUp = signupForm.querySelector('.caption');
+    captionUp.textContent = 'Уже зарегистрированы?';
     captionIn.addEventListener('click', function () {
       signinForm.classList.add('js--hidden');
       signupForm.classList.remove('js--hidden');
@@ -394,7 +395,9 @@ setTimeout(activateLogout, 300);
 if (localStorage.getItem('logged')) {
   if (localStorage.getItem('logged') == 'true') {
     var account = document.querySelector('.account');
+    var accountMobile = document.querySelector('.account-mobile');
     account.classList.add('account--logged');
+    accountMobile.classList.add('account--logged');
   }
 }
 if (document.getElementById('menuOpener')) {
@@ -420,7 +423,7 @@ if (pageLocation.includes('profile') || pageLocation.includes('subscription')) {
         link.classList.add('profile-navigation__link--active');
         sectionHeader.textContent = props[1];
         avatarFrame.classList.add('js--hidden');
-      } else if (link.href.includes('user') && pageLocation.includes('user') && !pageLocation.includes('chat')) {
+      } else if (link.href.includes('user') && !link.href.includes('chat') && pageLocation.includes('user') && !pageLocation.includes('chat')) {
         link.classList.add('profile-navigation__link--active');
         sectionHeader.textContent = props[0];
       } else if (link.href.includes('subscription') && pageLocation.includes('subscription')) {

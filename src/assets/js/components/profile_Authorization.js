@@ -4,6 +4,7 @@ function activateForms() {
         const signupForm = document.querySelector('.signup-form');
         const captionIn = signinForm.querySelector('.caption');
         const captionUp = signupForm.querySelector('.caption');
+        captionUp.textContent = 'Уже зарегистрированы?';
         captionIn.addEventListener('click', () => {
             signinForm.classList.add('js--hidden');
             signupForm.classList.remove('js--hidden');

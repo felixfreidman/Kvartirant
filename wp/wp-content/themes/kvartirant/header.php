@@ -63,7 +63,7 @@
             </svg>
         </a>
         <?php if (is_user_logged_in()) { ?>
-        <a title="Профиль" href="<?php echo home_url() . '/profile'; ?>">
+        <a title="Профиль" href="<?php echo home_url() . '/profile?user'; ?>">
             <div class="account">
                 <svg class="loggedOFF" width="30" height="30" viewBox="0 0 30 30" fill="none"
                     xmlns="http://www.w3.org/2000/svg">

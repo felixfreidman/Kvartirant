@@ -70,9 +70,9 @@ gulp.task("style", function () {
   return gulp
     .src(config.src.style)
     .pipe(plumber())
-    .pipe(sourcemaps.init())
+    // .pipe(sourcemaps.init())
     .pipe(sass({
-      sourceMap: true,
+      // sourceMap: true,
       errLogToConsole: true,
       includePaths: ["node_modules/"]
     }))
@@ -126,7 +126,7 @@ gulp.task("js:plugins", function () {
 gulp.task("js:components", function () {
   return gulp.src(config.src.js.components)
     .pipe(plumber())
-    .pipe(sourcemaps.init())
+    // .pipe(sourcemaps.init())
     .pipe(gulpInclude({
       extensions: "js",
       hardFail: true,
@@ -140,7 +140,7 @@ gulp.task("js:components", function () {
     }))
     .pipe(gulp.dest(config.build.js))
     .pipe(uglify())
-    .pipe(sourcemaps.write())
+    // .pipe(sourcemaps.write())
     .pipe(rename('main.min.js'))
     .pipe(gulp.dest(config.build.js))
     .pipe(reload({ stream: true }));
