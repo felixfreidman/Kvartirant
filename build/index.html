@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.min.css">
+</head>
+
+<body>
+    <header class="header">
+        <a href="./index.html">
+            <div class="logo">
+                <svg class="logo-image" width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="60" height="60" rx="8" fill="#19376D"></rect>
+                    <path d="M7.66699 29.5541C7.66699 27.9359 8.31739 26.404 9.44058 25.3316L26.4103 9.12798C28.451 7.17935 31.5496 7.17934 33.5904 9.12798L50.5601 25.3316C51.6833 26.404 52.3337 27.9359 52.3337 29.5541V46.6492C52.3337 49.8352 49.8866 52.3332 46.97 52.3332H13.0306C10.1141 52.3332 7.66699 49.8352 7.66699 46.6492V29.5541Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M20.8359 44.8486C19.0924 44.8486 17.7091 44.1299 16.686 42.6926C15.6629 41.2553 15.1514 39.308 15.1514 36.8506C15.1514 34.3932 15.6557 32.4536 16.6644 31.0317C17.6874 29.5944 19.078 28.8758 20.8359 28.8758C22.5795 28.8758 23.9556 29.5944 24.9642 31.0317C25.9873 32.4536 26.4989 34.3932 26.4989 36.8506C26.4989 39.308 25.9873 41.2553 24.9642 42.6926C23.9412 44.1299 22.5651 44.8486 20.8359 44.8486ZM20.8359 42.484C21.8734 42.484 22.6803 41.9894 23.2567 41.0003C23.8475 40.0112 24.1429 38.6279 24.1429 36.8506C24.1429 35.676 24.006 34.6714 23.7322 33.8368C23.4729 32.9868 23.091 32.3454 22.5867 31.9127C22.0967 31.4645 21.5132 31.2404 20.8359 31.2404C20.1443 31.2404 19.5463 31.4645 19.0419 31.9127C18.5376 32.3454 18.1557 32.9868 17.8964 33.8368C17.637 34.6714 17.5073 35.676 17.5073 36.8506C17.5073 38.6279 17.7955 40.0112 18.3719 41.0003C18.9627 41.9894 19.784 42.484 20.8359 42.484Z" fill="white"></path>
+                    <path d="M31.8366 35.4364C30.7847 35.4364 29.9201 35.081 29.2428 34.37C28.58 33.6591 28.2486 32.7473 28.2486 31.6345C28.2486 30.5372 28.58 29.6408 29.2428 28.9453C29.9201 28.2344 30.7847 27.8789 31.8366 27.8789C32.8885 27.8789 33.7458 28.2344 34.4087 28.9453C35.0715 29.6408 35.4029 30.5372 35.4029 31.6345C35.4029 32.7473 35.0643 33.6591 34.387 34.37C33.7242 35.081 32.874 35.4364 31.8366 35.4364ZM30.5397 44.6631L39.7258 28.3194H42.2546L33.0686 44.6631H30.5397ZM31.8366 33.3964C32.0671 33.3964 32.2833 33.3577 32.485 33.2805C32.6867 33.1877 32.8596 33.0641 33.0037 32.9095C33.1478 32.755 33.2559 32.5695 33.3279 32.3532C33.4144 32.1368 33.4576 31.8972 33.4576 31.6345C33.4576 31.1399 33.3063 30.7304 33.0037 30.4058C32.7011 30.0658 32.3121 29.8958 31.8366 29.8958C31.3755 29.8958 30.9864 30.0658 30.6694 30.4058C30.3668 30.7304 30.2155 31.1399 30.2155 31.6345C30.2155 32.1445 30.3668 32.5695 30.6694 32.9095C30.9864 33.2341 31.3755 33.3964 31.8366 33.3964ZM43.8325 43.6431C43.1696 44.3386 42.3195 44.6863 41.282 44.6863C40.2445 44.6863 39.3871 44.3386 38.7099 43.6431C38.0471 42.9322 37.7156 42.028 37.7156 40.9307C37.7156 39.8334 38.0471 38.937 38.7099 38.2415C39.3871 37.5306 40.2445 37.1751 41.282 37.1751C42.3195 37.1751 43.1696 37.5306 43.8325 38.2415C44.5097 38.937 44.8483 39.8334 44.8483 40.9307C44.8483 42.028 44.5097 42.9322 43.8325 43.6431ZM41.282 42.6463C41.5846 42.6463 41.8584 42.5767 42.1033 42.4376C42.3483 42.2831 42.5356 42.0744 42.6653 41.8117C42.8094 41.5489 42.8814 41.2553 42.8814 40.9307C42.8814 40.4207 42.7301 40.0034 42.4275 39.6789C42.1394 39.3543 41.7575 39.192 41.282 39.192C41.0514 39.192 40.8353 39.2384 40.6336 39.3311C40.4318 39.4239 40.2589 39.5475 40.1148 39.7021C39.9851 39.8412 39.8771 40.0189 39.7906 40.2353C39.7041 40.4516 39.6609 40.6835 39.6609 40.9307C39.6609 41.4253 39.8122 41.8349 40.1148 42.1594C40.4318 42.484 40.8209 42.6463 41.282 42.6463Z" fill="white"></path>
+                </svg>
+                <div class="logo-name">Квартирант</div>
+            </div>
+        </a>
+        <div class="social-container">
+            <a href="#" class="social-container__link">
+                <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7.99999 0C3.58172 0 0 3.58172 0 8V22C0 26.4183 3.58172 30 7.99999 30H22C26.4182 30 30 26.4183 30 22V8C30 3.58172 26.4182 0 22 0H7.99999ZM24.2187 21.4062H22.0312C21.2031 21.4062 20.9531 20.7343 19.4687 19.25C18.1718 18 17.625 17.8437 17.2968 17.8437C16.8437 17.8437 16.7187 17.9687 16.7187 18.5937V20.5625C16.7187 21.0937 16.5468 21.4062 15.1562 21.4062C13.8068 21.3155 12.4982 20.9056 11.3383 20.2102C10.1783 19.5147 9.20017 18.5537 8.48436 17.4062C6.96312 15.5127 5.85617 13.3249 5.23095 10.9843C5.0848 10.4372 4.95359 9.66271 5.5095 9.55455C5.58744 9.53939 5.67746 9.53119 5.78128 9.53119H7.96874C8.53124 9.53119 8.7344 9.78121 8.95311 10.3594C10.0155 13.4843 11.8281 16.2031 12.5625 16.2031C12.8437 16.2031 12.9687 16.0781 12.9687 15.375V12.1562C12.8749 10.6875 12.0937 10.5624 12.0937 10.0312C12.104 9.8911 12.1685 9.76048 12.2735 9.66712C12.3785 9.57375 12.5158 9.52499 12.6562 9.53119H16.0937C16.5625 9.53119 16.7187 9.76557 16.7187 10.3281V14.6719C16.7187 15.1406 16.9218 15.2968 17.0625 15.2968C17.3437 15.2968 17.5624 15.1406 18.078 14.625C19.1861 13.2738 20.0914 11.7684 20.7656 10.1562C20.8344 9.96223 20.9648 9.79611 21.1369 9.68324C21.3091 9.57038 21.5134 9.51697 21.7187 9.53119H23.9062C24.5625 9.53119 24.7031 9.85932 24.5625 10.3281C23.7665 12.1105 22.7817 13.8025 21.625 15.375C21.3906 15.7343 21.2969 15.9218 21.625 16.3437C21.8437 16.6718 22.6094 17.3124 23.125 17.9218C23.7213 18.5167 24.2372 19.1858 24.6603 19.912C24.8782 20.286 25.1714 20.7473 24.9421 21.1144C24.8212 21.308 24.569 21.4062 24.2187 21.4062Z" fill="#19376D"></path>
+                </svg>
+
+            </a>
+            <a href="#" class="social-container__link"><svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M30 8C30 3.58172 26.4182 0 22 0H7.99999C3.58172 0 0 3.58172 0 8V22C0 26.4183 3.58172 30 7.99999 30H22C26.4182 30 30 26.4183 30 22V8ZM10.2289 12.4334C8.56332 13.0804 6.85194 13.7452 5.28705 14.5121C4.47 15.0444 5.55586 15.421 6.57471 15.7742C6.73672 15.8304 6.89702 15.8859 7.0477 15.9414C7.17307 15.9757 7.30057 16.0118 7.42977 16.0485C8.56299 16.3697 9.82661 16.7279 10.9267 16.1891C12.734 15.2654 14.4396 14.1975 16.1439 13.1304C16.7022 12.7809 17.2604 12.4314 17.8219 12.0871C17.8482 12.0721 17.8779 12.055 17.9104 12.0363C17.9796 11.9964 18.0613 11.9493 18.1492 11.9004C18.999 11.4287 18.7166 12.3503 17.9823 12.9871C17.3683 13.5195 16.7372 14.027 16.104 14.5362C15.4209 15.0855 14.7353 15.6367 14.066 16.2236C13.6715 16.5087 13.2668 16.9891 13.2487 17.4527C13.2302 17.9272 13.7331 18.209 14.1373 18.4583C15.4433 19.2637 16.7645 20.0543 18.0851 20.8445C18.5822 21.1419 19.0792 21.4393 19.5753 21.7375C20.4151 22.334 21.7275 21.8514 21.9123 20.9192C21.9942 20.4918 22.0763 20.0645 22.1585 19.6371C22.6143 17.2658 23.0703 14.8937 23.4731 12.5147C23.5278 12.1419 23.5898 11.769 23.6519 11.3959C23.7617 10.7362 23.8715 10.0759 23.9411 9.41392C23.9926 8.92466 24.0341 8.30933 23.5864 8.10551C23.1339 7.89952 22.4189 8.03525 21.9541 8.17305C18.4172 9.37046 14.9155 10.6566 11.4278 11.9655C11.0326 12.1212 10.6321 12.2768 10.2289 12.4334Z" fill="#19376D"></path>
+                </svg>
+            </a>
+        </div>
+        <a href="./signin.html">
+            <div class="account">
+                <svg class="loggedOFF" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_65_5718)">
+                        <path d="M15 0C6.72972 0 2.13868e-08 6.72972 0 15C0 19.0079 1.56057 22.7741 4.39432 25.6057C7.22593 28.4394 10.9943 30 15 30C23.2703 30 30 23.2703 30 15C30 6.72972 23.2703 2.13868e-08 15 0ZM15 2.13868C22.0897 2.13868 27.8613 7.90814 27.8613 15C27.8613 18.3641 26.5493 21.4186 24.4277 23.7134C22.9585 21.9726 21.0605 20.6917 18.9432 19.9624C20.3782 18.784 21.3158 17.0107 21.3158 14.9875C21.3158 11.4629 18.4484 8.59649 14.8747 8.59649C11.3523 8.59649 8.48371 11.4617 8.48371 15.0376C8.48371 17.0244 9.41514 18.7821 10.8438 19.9541C8.76926 20.6641 6.89921 21.9051 5.44277 23.584C3.31479 21.2207 2.13868 18.2037 2.13868 15C2.13868 7.90814 7.91028 2.13868 15 2.13868ZM14.9248 10.7352C17.2709 10.7352 19.1771 12.6423 19.1771 15.0376C19.1771 17.3345 17.3425 19.2025 15.0627 19.2774C15.0006 19.2774 14.9409 19.2648 14.8789 19.2648C14.8254 19.2648 14.7736 19.2752 14.7201 19.2774C12.4467 19.1918 10.6224 17.3293 10.6224 14.9875C10.6224 12.6435 12.5295 10.7352 14.9248 10.7352ZM14.7201 21.4119C14.7715 21.414 14.8234 21.4286 14.8747 21.4286H14.9248C14.9719 21.4286 15.0114 21.414 15.0585 21.4119C18.0933 21.4653 20.9261 22.8425 22.8488 25.1587C20.6759 26.8461 17.9578 27.8613 15 27.8613C12.055 27.8613 9.26366 26.8699 6.99666 25.0585C8.92147 22.8 11.7303 21.4589 14.7201 21.4119Z" fill="#19376D"></path>
+                    </g>
+                    <defs>
+                        <clipPath id="clip0_65_5718">
+                            <rect width="30" height="30" fill="white"></rect>
+                        </clipPath>
+                    </defs>
+                </svg>
+                <svg class="loggedIN" width="30" height="31" viewBox="0 0 30 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_65_6619)">
+                        <path d="M15 0.986816C6.72972 0.986816 2.13868e-08 7.71654 0 15.9868C0 19.9947 1.56057 23.7609 4.39432 26.5925C7.22593 29.4263 10.9943 30.9868 15 30.9868C23.2703 30.9868 30 24.2571 30 15.9868C30 7.71654 23.2703 0.986816 15 0.986816ZM15 3.1255C22.0897 3.1255 27.8613 8.89495 27.8613 15.9868C27.8613 19.351 26.5493 22.4055 24.4277 24.7003C22.9585 22.9594 21.0605 21.6785 18.9432 20.9492C20.3782 19.7708 21.3158 17.9975 21.3158 15.9743C21.3158 12.4497 18.4484 9.58331 14.8747 9.58331C11.3523 9.58331 8.48371 12.4485 8.48371 16.0244C8.48371 18.0112 9.41514 19.7689 10.8438 20.9409C8.76926 21.6509 6.89921 22.8919 5.44277 24.5708C3.31479 22.2075 2.13868 19.1906 2.13868 15.9868C2.13868 8.89495 7.91028 3.1255 15 3.1255Z" fill="#19376D"></path>
+                    </g>
+                    <defs>
+                        <clipPath id="clip0_65_6619">
+                            <rect width="30" height="30" fill="white" transform="translate(0 0.986816)"></rect>
+                        </clipPath>
+                    </defs>
+                </svg>
+
+            </div>
+        </a>
+    </header>
+    <main class="main">
+        <div class="greeting-section">
+            <div class="container container--vertical">
+                <div class="page-header">Самый простой способ <br>
+                    найти квартиру</div>
+                <div class="header-list">
+                    <div class="list-item">
+                        <div class="list-bullet"></div>
+                        Быстрый поиск желаемой квартиры
+                    </div>
+                    <div class="list-item">
+                        <div class="list-bullet"></div>
+                        Поиск по вашим параметрам
+                    </div>
+                    <div class="list-item">
+                        <div class="list-bullet"></div>
+                        Бесплатно
+                    </div>
+                </div>
+            </div>
+            <form class="form-small">
+                <div class="form-small__header">Мы вам перезвоним и <br>ответим на все важные<br> вопросы</div>
+                <input type="text" class="form-small__input" name="greeting-name" placeholder="Имя">
+                <input type="text" class="form-small__input" name="greeting-phone" placeholder="+7 (000) 000-00-00">
+                <input type="submit" class="form-small__button" name="greeting-submit" value="Отправить">
+            </form>
+        </div>
+        <div class="why-section">
+            <div class="section-header">Найдите квартиру с помощью <br>
+                нашего сервиса</div>
+            <div class="container container--horizontal">
+                <div class="why-card">
+                    <img src="./assets/images/content/search.gif" alt="" class="why-card__img">
+                    <div class="why-card__header">Поиск по вашим параметрам</div>
+                    <div class="why-card__caption">часто используемый в печати и вэб-дизайне. Lorem Ipsum является
+                        стандартной "рыбой"</div>
+                </div>
+                <div class="why-card">
+                    <img src="./assets/images/content/realty.gif" alt="" class="why-card__img">
+                    <div class="why-card__header">Объявления со всего Интернета</div>
+                    <div class="why-card__caption">часто используемый в печати и вэб-дизайне. Lorem Ipsum является
+                        стандартной "рыбой</div>
+                </div>
+                <div class="why-card">
+                    <img src="./assets/images/content/follow.gif" alt="" class="why-card__img">
+                    <div class="why-card__header">Социальные сети</div>
+                    <div class="why-card__caption">часто используемый в печати и вэб-дизайне. Lorem Ipsum является
+                        стандартной "рыбой" для текстов на латинице с начала XVI века.
+                        В то время некий </div>
+                </div>
+                <div class="why-card">
+                    <img src="./assets/images/content/actual.gif" alt="" class="why-card__img">
+                    <div class="why-card__header">Актуальные объявления</div>
+                    <div class="why-card__caption">часто используемый в печати и вэб-дизайне. Lorem Ipsum является
+                        стандартной "рыбой" для текстов на латинице с начала XVI века. </div>
+                </div>
+            </div>
+        </div>
+        <div class="adt-section">
+            <div class="section-header">Потенциальные предложения</div>
+            <div class="container container--vertical">
+                <div class="container container--horizontal">
+                    <div class="adt-card">
+                        <div class="adt-card__images">
+                            <div class="swiper swiper-adt">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <img src="./assets/images/content/background1.jpg" alt="">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="./assets/images/content/background1.jpg" alt="">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="./assets/images/content/background1.jpg" alt="">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="./assets/images/content/background1.jpg" alt="">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="./assets/images/content/background1.jpg" alt="">
+                                    </div>
+                                </div>
+                                <div class="pagination-container">
+                                    <div class="swiper-pagination"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="adt-card__container">
+                            <div class="adt-card__header">2-к комнатная квартира, 102.8 м</div>
+
+                            <div class="adt-card__row">
+                                <div class="adt-card__img"><img src="./assets/images/content/price_logo.svg" alt="">
+                                </div>
+                                <div class="adt-card__caption">23.000 ₽ / мес.
+                                </div>
+                            </div>
+                            <div class="adt-card__row">
+                                <div class="adt-card__img"><img src="./assets/images/content/location_logo.svg" alt="">
+                                </div>
+                                <div class="adt-card__caption">мкрн. Университетский, 45
+                                </div>
+                            </div>
+                            <div class="adt-card__row">
+                                <div class="adt-card__img"><img src="./assets/images/content/stairs_logo.svg" alt="">
+                                </div>
+                                <div class="adt-card__caption">2 / 8 эт.
+                                </div>
+                            </div>
+                            <div class="adt-card__row">
+                                <div class="adt-card__img">
+                                    <img src="./assets/images/content/rooms_logo.svg" alt="">
+                                </div>
+                                <div class="adt-card__caption">2 комнаты
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="adt-card">
+                        <div class="adt-card__images">
+                            <div class="swiper swiper-adt">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <img src="./assets/images/content/background1.jpg" alt="">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="./assets/images/content/background1.jpg" alt="">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="./assets/images/content/background1.jpg" alt="">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="./assets/images/content/background1.jpg" alt="">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="./assets/images/content/background1.jpg" alt="">
+                                    </div>
+                                </div>
+                                <div class="pagination-container">
+                                    <div class="swiper-pagination"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="adt-card__container">
+                            <div class="adt-card__header">2-к комнатная квартира, 102.8 м</div>
+
+                            <div class="adt-card__row">
+                                <div class="adt-card__img"><img src="./assets/images/content/price_logo.svg" alt="">
+                                </div>
+                                <div class="adt-card__caption">23.000 ₽ / мес.
+                                </div>
+                            </div>
+                            <div class="adt-card__row">
+                                <div class="adt-card__img"><img src="./assets/images/content/location_logo.svg" alt="">
+                                </div>
+                                <div class="adt-card__caption">мкрн. Университетский, 45
+                                </div>
+                            </div>
+                            <div class="adt-card__row">
+                                <div class="adt-card__img"><img src="./assets/images/content/stairs_logo.svg" alt="">
+                                </div>
+                                <div class="adt-card__caption">2 / 8 эт.
+                                </div>
+                            </div>
+                            <div class="adt-card__row">
+                                <div class="adt-card__img">
+                                    <img src="./assets/images/content/rooms_logo.svg" alt="">
+                                </div>
+                                <div class="adt-card__caption">2 комнаты
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="adt-card">
+                        <div class="adt-card__images">
+                            <div class="swiper swiper-adt">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <img src="./assets/images/content/background1.jpg" alt="">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="./assets/images/content/background1.jpg" alt="">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="./assets/images/content/background1.jpg" alt="">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="./assets/images/content/background1.jpg" alt="">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="./assets/images/content/background1.jpg" alt="">
+                                    </div>
+                                </div>
+                                <div class="pagination-container">
+                                    <div class="swiper-pagination"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="adt-card__container">
+                            <div class="adt-card__header">2-к комнатная квартира, 102.8 м</div>
+
+                            <div class="adt-card__row">
+                                <div class="adt-card__img"><img src="./assets/images/content/price_logo.svg" alt="">
+                                </div>
+                                <div class="adt-card__caption">23.000 ₽ / мес.
+                                </div>
+                            </div>
+                            <div class="adt-card__row">
+                                <div class="adt-card__img"><img src="./assets/images/content/location_logo.svg" alt="">
+                                </div>
+                                <div class="adt-card__caption">мкрн. Университетский, 45
+                                </div>
+                            </div>
+                            <div class="adt-card__row">
+                                <div class="adt-card__img"><img src="./assets/images/content/stairs_logo.svg" alt="">
+                                </div>
+                                <div class="adt-card__caption">2 / 8 эт.
+                                </div>
+                            </div>
+                            <div class="adt-card__row">
+                                <div class="adt-card__img">
+                                    <img src="./assets/images/content/rooms_logo.svg" alt="">
+                                </div>
+                                <div class="adt-card__caption">2 комнаты
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="adt-card">
+                        <div class="adt-card__images">
+                            <div class="swiper swiper-adt">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <img src="./assets/images/content/background1.jpg" alt="">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="./assets/images/content/background1.jpg" alt="">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="./assets/images/content/background1.jpg" alt="">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="./assets/images/content/background1.jpg" alt="">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="./assets/images/content/background1.jpg" alt="">
+                                    </div>
+                                </div>
+                                <div class="pagination-container">
+                                    <div class="swiper-pagination"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="adt-card__container">
+                            <div class="adt-card__header">2-к комнатная квартира, 102.8 м</div>
+
+                            <div class="adt-card__row">
+                                <div class="adt-card__img"><img src="./assets/images/content/price_logo.svg" alt="">
+                                </div>
+                                <div class="adt-card__caption">23.000 ₽ / мес.
+                                </div>
+                            </div>
+                            <div class="adt-card__row">
+                                <div class="adt-card__img"><img src="./assets/images/content/location_logo.svg" alt="">
+                                </div>
+                                <div class="adt-card__caption">мкрн. Университетский, 45
+                                </div>
+                            </div>
+                            <div class="adt-card__row">
+                                <div class="adt-card__img"><img src="./assets/images/content/stairs_logo.svg" alt="">
+                                </div>
+                                <div class="adt-card__caption">2 / 8 эт.
+                                </div>
+                            </div>
+                            <div class="adt-card__row">
+                                <div class="adt-card__img">
+                                    <img src="./assets/images/content/rooms_logo.svg" alt="">
+                                </div>
+                                <div class="adt-card__caption">2 комнаты
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-section">
+            <div class="form-container">
+                <div class="container container--horizontal">
+                    <div class="form-container__header-container">
+                        <div class="form-container__header">Остались вопросы?</div>
+                        <div class="form-container__subheader">Оставьте заявку и мы вам перезвоним</div>
+                    </div>
+                    <form action="" class="form-container__form">
+                        <label for="formName" class="form-container__label">
+                            Имя
+                        </label>
+                        <input type="text" class="form-container__input" id="formName" placeholder="Иван">
+                        <label for="formPhone" class="form-container__label">
+                            Телефон
+                        </label>
+                        <input type="text" class="form-container__input" id="formPhone" placeholder="+7 (000) 000-00-00">
+                        <button type="submit" class="form-container__button">Отправить</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+        <div class="subs-section">
+            <div class="section-header">Найдите квартиру быстрее</div>
+            <div class="container container--horizontal">
+                <div class="sub-card">
+                    <div class="sub-card__header">
+                        <img src="./assets/images/content/check_logo.svg" alt="" class="sub-card__logo">
+                        <span class="sub-card__header-content">Базовая</span>
+                    </div>
+                    <div class="sub-card__list">
+                        <div class="sub-card__list-item">
+                            <div class="sub-card__bullet"></div>
+                            <div class="sub-card__item-content">Объявления проверяются роботом</div>
+                        </div>
+                        <div class="sub-card__list-item">
+                            <div class="sub-card__bullet"></div>
+                            <div class="sub-card__item-content">Все актуальные объявления со всех доступных источников
+                            </div>
+                        </div>
+                        <div class="sub-card__list-item">
+                            <div class="sub-card__bullet"></div>
+                            <div class="sub-card__item-content">Объявления от всех пользователей площадок</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sub-card">
+                    <div class="sub-card__header">
+                        <img src="./assets/images/content/premium_logo.svg" alt="" class="sub-card__logo">
+                        <span class="sub-card__header-content">Премиум</span>
+                    </div>
+                    <div class="sub-card__list">
+                        <div class="sub-card__list-item">
+                            <div class="sub-card__bullet"></div>
+                            <div class="sub-card__item-content">Объявления проверяются человеком</div>
+                        </div>
+                        <div class="sub-card__list-item">
+                            <div class="sub-card__bullet"></div>
+                            <div class="sub-card__item-content">Все актуальные объявления со всех доступных источников
+                            </div>
+                        </div>
+                        <div class="sub-card__list-item">
+                            <div class="sub-card__bullet"></div>
+                            <div class="sub-card__item-content">Все объявления от собственников</div>
+                        </div>
+                        <div class="sub-card__list-item">
+                            <div class="sub-card__bullet"></div>
+                            <div class="sub-card__item-content">Персонализированный подход</div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+    <footer class="footer">
+
+        <a href="./index.html">
+            <div class="logo">
+                <svg class="logo-image" width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="60" height="60" rx="8" fill="#19376D"></rect>
+                    <path d="M7.66699 29.5541C7.66699 27.9359 8.31739 26.404 9.44058 25.3316L26.4103 9.12798C28.451 7.17935 31.5496 7.17934 33.5904 9.12798L50.5601 25.3316C51.6833 26.404 52.3337 27.9359 52.3337 29.5541V46.6492C52.3337 49.8352 49.8866 52.3332 46.97 52.3332H13.0306C10.1141 52.3332 7.66699 49.8352 7.66699 46.6492V29.5541Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M20.8359 44.8486C19.0924 44.8486 17.7091 44.1299 16.686 42.6926C15.6629 41.2553 15.1514 39.308 15.1514 36.8506C15.1514 34.3932 15.6557 32.4536 16.6644 31.0317C17.6874 29.5944 19.078 28.8758 20.8359 28.8758C22.5795 28.8758 23.9556 29.5944 24.9642 31.0317C25.9873 32.4536 26.4989 34.3932 26.4989 36.8506C26.4989 39.308 25.9873 41.2553 24.9642 42.6926C23.9412 44.1299 22.5651 44.8486 20.8359 44.8486ZM20.8359 42.484C21.8734 42.484 22.6803 41.9894 23.2567 41.0003C23.8475 40.0112 24.1429 38.6279 24.1429 36.8506C24.1429 35.676 24.006 34.6714 23.7322 33.8368C23.4729 32.9868 23.091 32.3454 22.5867 31.9127C22.0967 31.4645 21.5132 31.2404 20.8359 31.2404C20.1443 31.2404 19.5463 31.4645 19.0419 31.9127C18.5376 32.3454 18.1557 32.9868 17.8964 33.8368C17.637 34.6714 17.5073 35.676 17.5073 36.8506C17.5073 38.6279 17.7955 40.0112 18.3719 41.0003C18.9627 41.9894 19.784 42.484 20.8359 42.484Z" fill="white"></path>
+                    <path d="M31.8366 35.4364C30.7847 35.4364 29.9201 35.081 29.2428 34.37C28.58 33.6591 28.2486 32.7473 28.2486 31.6345C28.2486 30.5372 28.58 29.6408 29.2428 28.9453C29.9201 28.2344 30.7847 27.8789 31.8366 27.8789C32.8885 27.8789 33.7458 28.2344 34.4087 28.9453C35.0715 29.6408 35.4029 30.5372 35.4029 31.6345C35.4029 32.7473 35.0643 33.6591 34.387 34.37C33.7242 35.081 32.874 35.4364 31.8366 35.4364ZM30.5397 44.6631L39.7258 28.3194H42.2546L33.0686 44.6631H30.5397ZM31.8366 33.3964C32.0671 33.3964 32.2833 33.3577 32.485 33.2805C32.6867 33.1877 32.8596 33.0641 33.0037 32.9095C33.1478 32.755 33.2559 32.5695 33.3279 32.3532C33.4144 32.1368 33.4576 31.8972 33.4576 31.6345C33.4576 31.1399 33.3063 30.7304 33.0037 30.4058C32.7011 30.0658 32.3121 29.8958 31.8366 29.8958C31.3755 29.8958 30.9864 30.0658 30.6694 30.4058C30.3668 30.7304 30.2155 31.1399 30.2155 31.6345C30.2155 32.1445 30.3668 32.5695 30.6694 32.9095C30.9864 33.2341 31.3755 33.3964 31.8366 33.3964ZM43.8325 43.6431C43.1696 44.3386 42.3195 44.6863 41.282 44.6863C40.2445 44.6863 39.3871 44.3386 38.7099 43.6431C38.0471 42.9322 37.7156 42.028 37.7156 40.9307C37.7156 39.8334 38.0471 38.937 38.7099 38.2415C39.3871 37.5306 40.2445 37.1751 41.282 37.1751C42.3195 37.1751 43.1696 37.5306 43.8325 38.2415C44.5097 38.937 44.8483 39.8334 44.8483 40.9307C44.8483 42.028 44.5097 42.9322 43.8325 43.6431ZM41.282 42.6463C41.5846 42.6463 41.8584 42.5767 42.1033 42.4376C42.3483 42.2831 42.5356 42.0744 42.6653 41.8117C42.8094 41.5489 42.8814 41.2553 42.8814 40.9307C42.8814 40.4207 42.7301 40.0034 42.4275 39.6789C42.1394 39.3543 41.7575 39.192 41.282 39.192C41.0514 39.192 40.8353 39.2384 40.6336 39.3311C40.4318 39.4239 40.2589 39.5475 40.1148 39.7021C39.9851 39.8412 39.8771 40.0189 39.7906 40.2353C39.7041 40.4516 39.6609 40.6835 39.6609 40.9307C39.6609 41.4253 39.8122 41.8349 40.1148 42.1594C40.4318 42.484 40.8209 42.6463 41.282 42.6463Z" fill="white"></path>
+                </svg>
+                <div class="logo-name">Квартирант</div>
+            </div>
+        </a>
+        <div class="social-container">
+            <a href="#" class="social-container__link">
+                <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7.99999 0C3.58172 0 0 3.58172 0 8V22C0 26.4183 3.58172 30 7.99999 30H22C26.4182 30 30 26.4183 30 22V8C30 3.58172 26.4182 0 22 0H7.99999ZM24.2187 21.4062H22.0312C21.2031 21.4062 20.9531 20.7343 19.4687 19.25C18.1718 18 17.625 17.8437 17.2968 17.8437C16.8437 17.8437 16.7187 17.9687 16.7187 18.5937V20.5625C16.7187 21.0937 16.5468 21.4062 15.1562 21.4062C13.8068 21.3155 12.4982 20.9056 11.3383 20.2102C10.1783 19.5147 9.20017 18.5537 8.48436 17.4062C6.96312 15.5127 5.85617 13.3249 5.23095 10.9843C5.0848 10.4372 4.95359 9.66271 5.5095 9.55455C5.58744 9.53939 5.67746 9.53119 5.78128 9.53119H7.96874C8.53124 9.53119 8.7344 9.78121 8.95311 10.3594C10.0155 13.4843 11.8281 16.2031 12.5625 16.2031C12.8437 16.2031 12.9687 16.0781 12.9687 15.375V12.1562C12.8749 10.6875 12.0937 10.5624 12.0937 10.0312C12.104 9.8911 12.1685 9.76048 12.2735 9.66712C12.3785 9.57375 12.5158 9.52499 12.6562 9.53119H16.0937C16.5625 9.53119 16.7187 9.76557 16.7187 10.3281V14.6719C16.7187 15.1406 16.9218 15.2968 17.0625 15.2968C17.3437 15.2968 17.5624 15.1406 18.078 14.625C19.1861 13.2738 20.0914 11.7684 20.7656 10.1562C20.8344 9.96223 20.9648 9.79611 21.1369 9.68324C21.3091 9.57038 21.5134 9.51697 21.7187 9.53119H23.9062C24.5625 9.53119 24.7031 9.85932 24.5625 10.3281C23.7665 12.1105 22.7817 13.8025 21.625 15.375C21.3906 15.7343 21.2969 15.9218 21.625 16.3437C21.8437 16.6718 22.6094 17.3124 23.125 17.9218C23.7213 18.5167 24.2372 19.1858 24.6603 19.912C24.8782 20.286 25.1714 20.7473 24.9421 21.1144C24.8212 21.308 24.569 21.4062 24.2187 21.4062Z" fill="#19376D"></path>
+                </svg>
+
+            </a>
+            <a href="#" class="social-container__link"><svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M30 8C30 3.58172 26.4182 0 22 0H7.99999C3.58172 0 0 3.58172 0 8V22C0 26.4183 3.58172 30 7.99999 30H22C26.4182 30 30 26.4183 30 22V8ZM10.2289 12.4334C8.56332 13.0804 6.85194 13.7452 5.28705 14.5121C4.47 15.0444 5.55586 15.421 6.57471 15.7742C6.73672 15.8304 6.89702 15.8859 7.0477 15.9414C7.17307 15.9757 7.30057 16.0118 7.42977 16.0485C8.56299 16.3697 9.82661 16.7279 10.9267 16.1891C12.734 15.2654 14.4396 14.1975 16.1439 13.1304C16.7022 12.7809 17.2604 12.4314 17.8219 12.0871C17.8482 12.0721 17.8779 12.055 17.9104 12.0363C17.9796 11.9964 18.0613 11.9493 18.1492 11.9004C18.999 11.4287 18.7166 12.3503 17.9823 12.9871C17.3683 13.5195 16.7372 14.027 16.104 14.5362C15.4209 15.0855 14.7353 15.6367 14.066 16.2236C13.6715 16.5087 13.2668 16.9891 13.2487 17.4527C13.2302 17.9272 13.7331 18.209 14.1373 18.4583C15.4433 19.2637 16.7645 20.0543 18.0851 20.8445C18.5822 21.1419 19.0792 21.4393 19.5753 21.7375C20.4151 22.334 21.7275 21.8514 21.9123 20.9192C21.9942 20.4918 22.0763 20.0645 22.1585 19.6371C22.6143 17.2658 23.0703 14.8937 23.4731 12.5147C23.5278 12.1419 23.5898 11.769 23.6519 11.3959C23.7617 10.7362 23.8715 10.0759 23.9411 9.41392C23.9926 8.92466 24.0341 8.30933 23.5864 8.10551C23.1339 7.89952 22.4189 8.03525 21.9541 8.17305C18.4172 9.37046 14.9155 10.6566 11.4278 11.9655C11.0326 12.1212 10.6321 12.2768 10.2289 12.4334Z" fill="#19376D"></path>
+                </svg>
+            </a>
+        </div>
+        <a class="created" href="https://github.com/felixfreidman">Разработано студией ff.intech</a>
+
+    </footer>
+    <div class="footer-navigation">
+        <a href="./index.html" class="mobile-link">
+            <svg width="800px" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M22 10.7602V17.5967C22 19.4377 20.5076 20.93 18.6667 20.93H17.4444C16.8922 20.93 16.4444 20.4823 16.4444 19.93V19.7078C16.4444 19.1555 16.8922 18.7078 17.4444 18.7078H18.6667C19.2803 18.7078 19.7778 18.2104 19.7778 17.5967V10.7602C19.7778 10.4141 19.6165 10.0878 19.3416 9.87755L12.6749 4.77951C12.2765 4.47486 11.7235 4.47485 11.3251 4.77951L4.65839 9.87755C4.38348 10.0878 4.22222 10.4141 4.22222 10.7602V17.5967C4.22222 18.2104 4.71968 18.7078 5.33333 18.7078H6.55556C7.10784 18.7078 7.55556 19.1555 7.55556 19.7078V19.93C7.55556 20.4823 7.10784 20.93 6.55556 20.93H5.33333C3.49239 20.93 2 19.4377 2 17.5967V10.7602C2 9.72193 2.48377 8.74299 3.3085 8.11231L9.97517 3.01427C11.1704 2.1003 12.8297 2.10031 14.0248 3.01427L20.6915 8.11231C21.5162 8.74299 22 9.72194 22 10.7602ZM11.8889 11.1523H12.1111C13.768 11.1523 15.1111 12.4954 15.1111 14.1523V17.7078C15.1111 19.3647 13.768 20.7078 12.1111 20.7078H11.8889C10.232 20.7078 8.88889 19.3647 8.88889 17.7078V14.1523C8.88889 12.4954 10.232 11.1523 11.8889 11.1523ZM13.1111 14.1523C13.1111 13.6 12.6634 13.1523 12.1111 13.1523H11.8889C11.3366 13.1523 10.8889 13.6 10.8889 14.1523V17.7078C10.8889 18.2601 11.3366 18.7078 11.8889 18.7078H12.1111C12.6634 18.7078 13.1111 18.2601 13.1111 17.7078V14.1523Z" fill="#0b2447"></path>
+            </svg>
+        </a>
+        <a href="./list.html" class="mobile-link">
+            <svg width="800px" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="4" y="4" width="16" height="16" rx="3" stroke="#0b2447" stroke-width="2"></rect>
+                <path d="M16 10L8 10" stroke="#0b2447" stroke-width="2" stroke-linecap="round"></path>
+                <path d="M16 14L8 14" stroke="#0b2447" stroke-width="2" stroke-linecap="round"></path>
+            </svg>
+        </a>
+        <a href="./chat.html" class="mobile-link">
+            <svg width="800px" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g id="Communication / Chat_Remove">
+                    <path id="Vector" d="M9 11H15M7.12357 18.7012L5.59961 19.9203C4.76744 20.5861 4.35115 20.9191 4.00098 20.9195C3.69644 20.9198 3.40845 20.7813 3.21846 20.5433C3 20.2696 3 19.7369 3 18.6712V7.2002C3 6.08009 3 5.51962 3.21799 5.0918C3.40973 4.71547 3.71547 4.40973 4.0918 4.21799C4.51962 4 5.08009 4 6.2002 4H17.8002C18.9203 4 19.4796 4 19.9074 4.21799C20.2837 4.40973 20.5905 4.71547 20.7822 5.0918C21 5.5192 21 6.07899 21 7.19691V14.8036C21 15.9215 21 16.4805 20.7822 16.9079C20.5905 17.2842 20.2843 17.5905 19.908 17.7822C19.4806 18 18.921 18 17.8031 18H9.12207C8.70603 18 8.49877 18 8.2998 18.0408C8.12328 18.0771 7.95216 18.1368 7.79168 18.2188C7.61281 18.3101 7.45249 18.4384 7.13478 18.6926L7.12357 18.7012Z" stroke="#0b2447" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                </g>
+            </svg>
+        </a>
+        <a href="./signin.html" class="mobile-link">
+            <svg width="800px" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g id="style=stroke">
+                    <g id="profile">
+                        <path id="vector (Stroke)" fill-rule="evenodd" clip-rule="evenodd" d="M12 2.75C9.92893 2.75 8.25 4.42893 8.25 6.5C8.25 8.57107 9.92893 10.25 12 10.25C14.0711 10.25 15.75 8.57107 15.75 6.5C15.75 4.42893 14.0711 2.75 12 2.75ZM6.75 6.5C6.75 3.6005 9.1005 1.25 12 1.25C14.8995 1.25 17.25 3.6005 17.25 6.5C17.25 9.3995 14.8995 11.75 12 11.75C9.1005 11.75 6.75 9.3995 6.75 6.5Z" fill="#0b2447"></path>
+                        <path id="rec (Stroke)" fill-rule="evenodd" clip-rule="evenodd" d="M4.25 18.5714C4.25 15.6325 6.63249 13.25 9.57143 13.25H14.4286C17.3675 13.25 19.75 15.6325 19.75 18.5714C19.75 20.8792 17.8792 22.75 15.5714 22.75H8.42857C6.12081 22.75 4.25 20.8792 4.25 18.5714ZM9.57143 14.75C7.46091 14.75 5.75 16.4609 5.75 18.5714C5.75 20.0508 6.94924 21.25 8.42857 21.25H15.5714C17.0508 21.25 18.25 20.0508 18.25 18.5714C18.25 16.4609 16.5391 14.75 14.4286 14.75H9.57143Z" fill="#0b2447"></path>
+                    </g>
+                </g>
+            </svg>
+        </a>
+    </div>
+    <script src="./assets/js/jquery.min.js"></script>
+    <script src="./assets/js/plugins.min.js"></script>
+    <script src="./assets/js/main.min.js"></script>
+</body>
+
+</html>
